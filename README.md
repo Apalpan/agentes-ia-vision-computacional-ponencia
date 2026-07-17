@@ -42,7 +42,12 @@ El control ejecuta typecheck, build, verificación de contenido, screenshots por
 - HTML offline después del build.
 - Sin publicación ni escritura en el vault.
 
+## Iterar con Claude Code
+
+El prompt maestro para auditar e implementar mejoras profundas de storytelling, UX/UI, Remotion y clips está en `docs/CLAUDE_CODE_MASTER_PROMPT.md`.
+
+Abrir Claude Code en `D:\AP` y pegar el bloque comprendido entre `INICIO DEL PROMPT` y `FIN DEL PROMPT`.
+
 ## Fuente de verdad
 
 Las fuentes consultadas están registradas en `public/source-manifest.json`. No se usan cifras comerciales o de precisión no verificadas.
-
