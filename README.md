@@ -2,6 +2,9 @@
 
 Keynote interactiva 16:9 (HTML offline) + motor temporal Remotion (MP4 y clips) para la ponencia GEN+ sobre agentes IA, visión computacional y el loop operativo de decisiones en construcción.
 
+**LIVE:** https://apalpan.github.io/agentes-ia-vision-computacional-ponencia/
+Deploy: `npm run build` → push de `dist/` a la rama `gh-pages` (la rama `main` lleva el código).
+
 ## Tesis
 
 > **Cuando la obra puede ver, el agente puede actuar.**
