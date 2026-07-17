@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import type { SlideDef } from './types'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import type { SceneContract } from '../content/types'
 
 function readInitialSlide(total: number) {
   const value = Number(new URLSearchParams(window.location.search).get('slide'))
@@ -13,20 +13,20 @@ function formatTime(totalSeconds: number) {
   return `${minutes}:${seconds}`
 }
 
-export default function Deck({ slides }: { slides: SlideDef[] }) {
-  const [current, setCurrent] = useState(() => readInitialSlide(slides.length))
+export default function Deck({ scenes }: { scenes: SceneContract[] }) {
+  const [current, setCurrent] = useState(() => readInitialSlide(scenes.length))
   const [overview, setOverview] = useState(false)
   const [notes, setNotes] = useState(false)
   const [seconds, setSeconds] = useState(0)
+  const [resetKey, setResetKey] = useState(0)
   const touchStart = useRef<{ x: number; y: number } | null>(null)
 
-  const slide = slides[current]
-  const progress = ((current + 1) / slides.length) * 100
-  const sourceText = useMemo(() => slide.sources.join(' · '), [slide.sources])
+  const scene = scenes[current]
+  const progress = ((current + 1) / scenes.length) * 100
 
   const go = useCallback((index: number) => {
-    setCurrent(Math.max(0, Math.min(slides.length - 1, index)))
-  }, [slides.length])
+    setCurrent(Math.max(0, Math.min(scenes.length - 1, index)))
+  }, [scenes.length])
   const next = useCallback(() => go(current + 1), [current, go])
   const previous = useCallback(() => go(current - 1), [current, go])
 
@@ -50,7 +50,7 @@ export default function Deck({ slides }: { slides: SlideDef[] }) {
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       const target = event.target as HTMLElement | null
-      if (target?.matches('button, input, textarea, select')) {
+      if (target?.matches('button, input, textarea, select, video')) {
         if (event.key === 'Escape') target.blur()
         return
       }
@@ -66,13 +66,15 @@ export default function Deck({ slides }: { slides: SlideDef[] }) {
         go(0)
       } else if (event.key === 'End') {
         event.preventDefault()
-        go(slides.length - 1)
+        go(scenes.length - 1)
       } else if (event.key.toLowerCase() === 'o') {
         setOverview((value) => !value)
       } else if (event.key.toLowerCase() === 'n') {
         setNotes((value) => !value)
       } else if (event.key.toLowerCase() === 'f') {
         void toggleFullscreen()
+      } else if (event.key.toLowerCase() === 'r') {
+        setResetKey((value) => value + 1)
       } else if (event.key === 'Escape') {
         setOverview(false)
         setNotes(false)
@@ -80,7 +82,7 @@ export default function Deck({ slides }: { slides: SlideDef[] }) {
     }
     window.addEventListener('keydown', onKeyDown)
     return () => window.removeEventListener('keydown', onKeyDown)
-  }, [go, next, previous, slides.length, toggleFullscreen])
+  }, [go, next, previous, scenes.length, toggleFullscreen])
 
   return (
     <main
@@ -106,24 +108,24 @@ export default function Deck({ slides }: { slides: SlideDef[] }) {
       <header className="deck-header">
         <img src="./assets/gen-logo-white.png" alt="GEN+" />
         <p>AGENTES IA × VISIÓN COMPUTACIONAL</p>
-        <span className="slide-counter">{String(current + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}</span>
+        <span className="slide-counter">{String(current + 1).padStart(2, '0')} / {String(scenes.length).padStart(2, '0')}</span>
       </header>
 
       <section className="deck-stage" aria-live="polite">
-        <article className="scene scene-enter" data-slide-id={slide.id} key={slide.id}>
-          {slide.render()}
+        <article className="scene scene-enter" data-slide-id={scene.id} key={`${scene.id}-${resetKey}`}>
+          {scene.render()}
         </article>
       </section>
 
       <footer className="deck-footer">
-        <p>{slide.eyebrow}</p>
-        <span className="footer-source">{sourceText}</span>
+        <p>{scene.eyebrow}</p>
         <nav aria-label="Controles de presentación">
           <button type="button" onClick={previous} disabled={current === 0} aria-label="Escena anterior">←</button>
+          <button type="button" onClick={() => setResetKey((value) => value + 1)} aria-label="Reiniciar escena">R</button>
           <button type="button" onClick={() => setOverview(true)} aria-label="Abrir overview">O</button>
           <button type="button" onClick={() => setNotes(true)} aria-label="Abrir notas del presentador">N</button>
           <button type="button" onClick={() => void toggleFullscreen()} aria-label="Activar pantalla completa">F</button>
-          <button type="button" onClick={next} disabled={current === slides.length - 1} aria-label="Escena siguiente">→</button>
+          <button type="button" onClick={next} disabled={current === scenes.length - 1} aria-label="Escena siguiente">→</button>
         </nav>
       </footer>
       <div className="progress-track" aria-hidden="true"><i style={{ width: `${progress}%` }} /></div>
@@ -132,7 +134,7 @@ export default function Deck({ slides }: { slides: SlideDef[] }) {
         <div className="overlay overview-overlay" role="dialog" aria-modal="true" aria-label="Overview de la presentación">
           <div className="overlay-head"><p>MAPA DE LA PONENCIA</p><button type="button" onClick={() => setOverview(false)} aria-label="Cerrar overview">×</button></div>
           <div className="overview-grid">
-            {slides.map((item, index) => (
+            {scenes.map((item, index) => (
               <button
                 key={item.id}
                 type="button"
@@ -141,7 +143,7 @@ export default function Deck({ slides }: { slides: SlideDef[] }) {
               >
                 <span>{String(index + 1).padStart(2, '0')}</span>
                 <b>{item.eyebrow}</b>
-                <p>{item.title}</p>
+                <p>{item.claim}</p>
               </button>
             ))}
           </div>
@@ -151,14 +153,21 @@ export default function Deck({ slides }: { slides: SlideDef[] }) {
       {notes ? (
         <aside className="overlay notes-overlay" role="dialog" aria-modal="true" aria-label="Notas del presentador">
           <div className="overlay-head">
-            <p>NOTAS · {String(current + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}</p>
+            <p>NOTAS · {String(current + 1).padStart(2, '0')} / {String(scenes.length).padStart(2, '0')}</p>
             <div className="notes-actions"><span className="timer">{formatTime(seconds)}</span><button type="button" onClick={() => setSeconds(0)}>Reiniciar</button><button type="button" onClick={() => setNotes(false)} aria-label="Cerrar notas">×</button></div>
           </div>
           <div className="notes-copy">
-            <small>{slide.eyebrow}</small>
-            <h2>{slide.title}</h2>
-            <p>{slide.notes}</p>
-            <span>Fuentes: {sourceText}</span>
+            <small>{scene.eyebrow}</small>
+            <h2>{scene.claim}</h2>
+            <dl className="notes-grid">
+              <div><dt>Intención</dt><dd>{scene.notes.intent}</dd></div>
+              <div><dt>Apertura</dt><dd>{scene.notes.opening}</dd></div>
+              <div><dt>Explicación</dt><dd>{scene.notes.explanation}</dd></div>
+              <div><dt>Transición</dt><dd>{scene.notes.transition}</dd></div>
+              {scene.notes.warning ? <div className="note-warning"><dt>Advertencia</dt><dd>{scene.notes.warning}</dd></div> : null}
+              {scene.notes.cue ? <div className="note-cue"><dt>Cue</dt><dd>{scene.notes.cue}</dd></div> : null}
+            </dl>
+            <span>Fuentes: {scene.evidence.join(' · ')} — ver public/source-manifest.json</span>
           </div>
         </aside>
       ) : null}

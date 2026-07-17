@@ -1,0 +1,223 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root,
+#remotion-root {
+  width: 100%;
+  min-width: 320px;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  background: var(--background-deep);
+}
+
+body,
+button {
+  font-family: var(--font-body);
+}
+
+body {
+  color: var(--text-primary);
+  background: var(--background-deep);
+}
+
+button {
+  color: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--background-deep), 0 0 0 4px var(--signal-bright);
+}
+
+button:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+::selection {
+  color: var(--text-primary);
+  background: color-mix(in oklch, var(--signal) 42%, transparent);
+}
+
+/* Entradas compartidas (interactivo). En render, Reveal aplica estilos inline. */
+.motion-item {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition:
+    opacity var(--reveal-dur) var(--ease-out),
+    transform var(--reveal-dur) var(--ease-out);
+  transition-delay: calc(var(--i, 0) * var(--reveal-stagger));
+}
+
+@starting-style {
+  .motion-item {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+  }
+}
+
+/* Modo render (Remotion): el tiempo lo gobierna el frame, no CSS. */
+.mode-render *,
+.mode-render *::before,
+.mode-render *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Acciones */
+.primary-action {
+  min-height: 48px;
+  padding: 12px 18px;
+  border: 1px solid color-mix(in oklch, var(--decision) 72%, white);
+  border-radius: 12px;
+  background: var(--decision);
+  color: var(--background-deep);
+  font-size: 0.9rem;
+  font-weight: 750;
+  cursor: pointer;
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) ease,
+    opacity var(--dur-fast) ease;
+}
+
+.primary-action:hover:not(:disabled) { background: var(--decision-soft); }
+.primary-action:disabled { cursor: default; opacity: 0.6; }
+
+.ghost-action {
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  background: color-mix(in oklch, var(--surface) 80%, transparent);
+  color: var(--text-primary);
+  font-size: 0.82rem;
+  font-weight: 650;
+  cursor: pointer;
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) ease,
+    background-color var(--dur-fast) ease;
+}
+
+.ghost-action:hover:not(:disabled) { border-color: var(--signal); }
+.ghost-action:disabled { cursor: default; opacity: 0.55; }
+
+@media (hover: hover) and (pointer: fine) {
+  .primary-action:hover:not(:disabled) { transform: translateY(-2px); }
+}
+
+/* Reproductor de clips conceptuales */
+.clip-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: color-mix(in oklch, var(--surface) 70%, transparent);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: border-color var(--dur-fast) ease, color var(--dur-fast) ease;
+}
+
+.clip-trigger:hover { border-color: var(--signal); color: var(--text-primary); }
+.clip-trigger i { font-style: normal; color: var(--signal-bright); }
+
+.clip-stage {
+  position: fixed;
+  z-index: 70;
+  inset: auto 24px 24px auto;
+  width: min(640px, calc(100vw - 48px));
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--background-deep);
+  box-shadow: var(--shadow);
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity var(--dur) var(--ease-out), transform var(--dur) var(--ease-out);
+}
+
+@starting-style {
+  .clip-stage { opacity: 0; transform: translateY(12px); }
+}
+
+.clip-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.clip-head span {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  color: var(--text-secondary);
+}
+
+.clip-head button {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.clip-stage video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--background-deep);
+}
+
+.clip-fallback {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  display: grid;
+  place-content: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.clip-fallback img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.4;
+}
+
+.clip-fallback p {
+  position: relative;
+  margin: 0;
+  padding: 0 24px;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}

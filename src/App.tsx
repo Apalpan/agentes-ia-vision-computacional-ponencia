@@ -1,7 +1,6 @@
-import Deck from './Deck'
-import { slides } from './slides'
+import Deck from './deck/Deck'
+import { scenes } from './content/scenes'
 
 export default function App() {
-  return <Deck slides={slides} />
+  return <Deck scenes={scenes} />
 }
-

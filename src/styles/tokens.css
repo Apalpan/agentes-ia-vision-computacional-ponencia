@@ -1,0 +1,82 @@
+/* Tokens GEN+ · Technical Cinema
+   Paleta de marca (S5): Deep Navy #0E2A6B · Primary Blue #2165FF · Light Blue #4D84FF
+   Ice Blue #E9F0FF · Deep Black #040F20 · Slate #3B5070 · Storm #5B6C87 · Cloud #E7E9ED
+   El naranja es un rol OPERATIVO (decisión/acción), no un color de marca documentado. */
+
+@property --scan-x {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 0%;
+}
+
+:root {
+  color-scheme: dark;
+  --hue: 262;
+
+  /* fallbacks hex (derivados de la paleta S5) */
+  --background: #030b1a;
+  --background-deep: #02060f;
+  --surface: #081b3a;
+  --surface-raised: #0d2a5c;
+  --border: rgba(233, 240, 255, 0.13);
+  --border-strong: rgba(233, 240, 255, 0.26);
+  --text-primary: #f4f8ff;
+  --text-secondary: #93a5c6;
+  --text-faint: #5b6c87;
+  --signal: #2165ff;
+  --signal-bright: #4d84ff;
+  --perception: #35c3e8;
+  --decision: #ff6b2b;
+  --decision-soft: #ff824d;
+  --evidence: #3fd695;
+  --risk: #ff5c6c;
+  --glow: rgba(33, 101, 255, 0.35);
+
+  --font-display: 'Space Grotesk Variable', 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-mono: 'Cascadia Code', 'SFMono-Regular', Consolas, monospace;
+
+  --step--1: clamp(0.7rem, 0.66rem + 0.18vw, 0.82rem);
+  --step-0: clamp(0.92rem, 0.87rem + 0.22vw, 1.05rem);
+  --step-1: clamp(1.08rem, 0.98rem + 0.48vw, 1.35rem);
+  --step-2: clamp(1.35rem, 1.15rem + 0.9vw, 1.9rem);
+  --step-3: clamp(1.75rem, 1.38rem + 1.65vw, 2.75rem);
+  --step-4: clamp(2.25rem, 1.65rem + 2.65vw, 3.95rem);
+  --step-5: clamp(3rem, 2rem + 4.25vw, 5.9rem);
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --dur-fast: 150ms;
+  --dur: 240ms;
+  --dur-scene: 620ms;
+  --reveal-dur: 560ms;
+  --reveal-stagger: 72ms;
+
+  --radius-sm: 10px;
+  --radius: 18px;
+  --radius-lg: 28px;
+  --shadow: 0 32px 90px -48px rgba(0, 0, 0, 0.88);
+}
+
+@supports (color: oklch(0 0 0)) {
+  :root {
+    --background: oklch(0.145 0.035 var(--hue));
+    --background-deep: oklch(0.1 0.028 var(--hue));
+    --surface: oklch(0.2 0.05 var(--hue));
+    --surface-raised: oklch(0.26 0.075 var(--hue));
+    --border: oklch(0.97 0.01 var(--hue) / 0.13);
+    --border-strong: oklch(0.97 0.01 var(--hue) / 0.26);
+    --text-primary: oklch(0.982 0.008 var(--hue));
+    --text-secondary: oklch(0.72 0.045 var(--hue));
+    --text-faint: oklch(0.55 0.05 var(--hue));
+    --signal: oklch(0.58 0.21 var(--hue));
+    --signal-bright: oklch(0.7 0.17 var(--hue));
+    --perception: oklch(0.78 0.13 215);
+    --decision: oklch(0.7 0.19 42);
+    --decision-soft: oklch(0.75 0.18 42);
+    --evidence: oklch(0.78 0.15 160);
+    --risk: oklch(0.68 0.19 22);
+    --glow: oklch(0.58 0.21 var(--hue) / 0.35);
+    --shadow: 0 32px 90px -48px oklch(0.02 0.02 var(--hue) / 0.92);
+  }
+}

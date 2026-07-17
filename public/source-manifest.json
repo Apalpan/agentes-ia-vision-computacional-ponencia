@@ -1,7 +1,7 @@
 {
   "deck": "agentes-ia-vision-computacional-ponencia",
   "updated": "2026-07-17",
-  "policy": "No se usan cifras de precisión, latencia, mercado o resultados comerciales sin validación primaria.",
+  "policy": "No se usan cifras de precisión, latencia, mercado o resultados comerciales sin validación primaria. Los tags de fuente no se muestran al público: viven en las notas del presentador. Tipografía: la marca (S5) define Plus Jakarta Sans + Ruberoid; al no existir Ruberoid como asset licenciado en el repo se usa Space Grotesk como display de escenario (decisión documentada).",
   "sources": [
     {
       "id": "S1",

@@ -1,0 +1,95 @@
+{
+  "deck": "agentes-ia-vision-computacional-ponencia",
+  "updated": "2026-07-17",
+  "policy": "No existe footage real verificable en las carpetas autorizadas del vault (inventario 2026-07-17). Todos los clips son motion graphics renderizados localmente con Remotion y se declaran en pantalla como representación conceptual. Ningún clip simula footage real ni resultados de un despliegue.",
+  "assets": [
+    {
+      "id": "clip-opening",
+      "file": "media/clips/opening.mp4",
+      "source": "Render local Remotion · composición OpeningClip (src/remotion/clips)",
+      "license": "GEN+ interno · generado en este repositorio",
+      "status": "conceptual",
+      "usedIn": [
+        "cover"
+      ],
+      "notes": "MP4 H.264 sin audio, 663 KB. Reproducción offline, activación manual, muted."
+    },
+    {
+      "id": "poster-opening",
+      "file": "media/posters/opening.png",
+      "source": "Frame 176 de la composición OpeningClip (remotion still)",
+      "license": "GEN+ interno · generado en este repositorio",
+      "status": "conceptual",
+      "usedIn": [
+        "cover"
+      ],
+      "notes": "Poster y fallback estático del clip."
+    },
+    {
+      "id": "clip-vision-to-event",
+      "file": "media/clips/vision-to-event.mp4",
+      "source": "Render local Remotion · composición VisionToEventClip (src/remotion/clips)",
+      "license": "GEN+ interno · generado en este repositorio",
+      "status": "conceptual",
+      "usedIn": [
+        "camera-lab"
+      ],
+      "notes": "MP4 H.264 sin audio, 978 KB. Reproducción offline, activación manual, muted."
+    },
+    {
+      "id": "poster-vision-to-event",
+      "file": "media/posters/vision-to-event.png",
+      "source": "Frame 236 de la composición VisionToEventClip (remotion still)",
+      "license": "GEN+ interno · generado en este repositorio",
+      "status": "conceptual",
+      "usedIn": [
+        "camera-lab"
+      ],
+      "notes": "Poster y fallback estático del clip."
+    },
+    {
+      "id": "clip-agent-loop",
+      "file": "media/clips/agent-loop.mp4",
+      "source": "Render local Remotion · composición AgentLoopClip (src/remotion/clips)",
+      "license": "GEN+ interno · generado en este repositorio",
+      "status": "conceptual",
+      "usedIn": [
+        "incident"
+      ],
+      "notes": "MP4 H.264 sin audio, 882 KB. Reproducción offline, activación manual, muted."
+    },
+    {
+      "id": "poster-agent-loop",
+      "file": "media/posters/agent-loop.png",
+      "source": "Frame 300 de la composición AgentLoopClip (remotion still)",
+      "license": "GEN+ interno · generado en este repositorio",
+      "status": "conceptual",
+      "usedIn": [
+        "incident"
+      ],
+      "notes": "Poster y fallback estático del clip."
+    },
+    {
+      "id": "clip-closing",
+      "file": "media/clips/closing.mp4",
+      "source": "Render local Remotion · composición ClosingClip (src/remotion/clips)",
+      "license": "GEN+ interno · generado en este repositorio",
+      "status": "conceptual",
+      "usedIn": [
+        "closing"
+      ],
+      "notes": "MP4 H.264 sin audio, 705 KB. Reproducción offline, activación manual, muted."
+    },
+    {
+      "id": "poster-closing",
+      "file": "media/posters/closing.png",
+      "source": "Frame 186 de la composición ClosingClip (remotion still)",
+      "license": "GEN+ interno · generado en este repositorio",
+      "status": "conceptual",
+      "usedIn": [
+        "closing"
+      ],
+      "notes": "Poster y fallback estático del clip."
+    }
+  ]
+}

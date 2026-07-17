@@ -1,7 +1,10 @@
 node_modules/
 dist/
 .vite/
-qa/screenshots/*.png
+qa/screenshots/
+qa/temporal/
+qa/remotion/
 qa/qa-report.json
+outputs/
+.render-tmp/
 *.log
-

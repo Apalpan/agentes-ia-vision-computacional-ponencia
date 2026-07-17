@@ -9,6 +9,14 @@
     "build": "vite build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
+    "studio": "remotion studio src/remotion/index.ts",
+    "render:deck": "remotion render src/remotion/index.ts KeynoteFull outputs/keynote-full.mp4",
+    "render:opening": "remotion render src/remotion/index.ts OpeningClip outputs/clips/opening.mp4",
+    "render:vision": "remotion render src/remotion/index.ts VisionToEventClip outputs/clips/vision-to-event.mp4",
+    "render:loop": "remotion render src/remotion/index.ts AgentLoopClip outputs/clips/agent-loop.mp4",
+    "render:closing": "remotion render src/remotion/index.ts ClosingClip outputs/clips/closing.mp4",
+    "render:clips": "node scripts/render-media.mjs",
+    "qa:temporal": "node scripts/qa-temporal.mjs",
     "verify": "node scripts/verify.mjs",
     "qa": "node scripts/qa.mjs",
     "check": "npm run typecheck && npm run build && npm run verify && npm run qa"
@@ -16,8 +24,11 @@
   "dependencies": {
     "@fontsource-variable/plus-jakarta-sans": "^5.1.1",
     "@fontsource-variable/space-grotesk": "^5.1.1",
+    "@remotion/cli": "^4.0.490",
+    "@remotion/transitions": "^4.0.490",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.490"
   },
   "devDependencies": {
     "@types/react": "^18.3.18",
@@ -29,4 +40,3 @@
     "vite": "^6.0.5"
   }
 }
-
