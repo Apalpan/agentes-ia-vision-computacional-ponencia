@@ -1,0 +1,103 @@
+{
+  "deck": "agentes-ia-vision-computacional-ponencia",
+  "updated": "2026-07-18",
+  "policy": "No se usan cifras de precisión, latencia, mercado o resultados comerciales sin validación primaria. Los tags de fuente no se muestran al público: viven en las notas del presentador. Tipografía: la marca (S5) define Plus Jakarta Sans + Ruberoid; al no existir Ruberoid como asset licenciado en el repo se usa Space Grotesk como display de escenario (decisión documentada).",
+  "sources": [
+    {
+      "id": "S1",
+      "path": "D:\\AP\\AP_Knowledge_OS\\05_KNOWLEDGE\\07_Agentes_IA_MCP_Tool_Use.md",
+      "use": "Definición, componentes, seguridad y métricas de agentes IA.",
+      "status": "base"
+    },
+    {
+      "id": "S2",
+      "path": "D:\\AP\\AP_Knowledge_OS\\05_KNOWLEDGE\\11_Computer_Vision_VisionPro.md",
+      "use": "Tareas de computer vision, pipeline, riesgos y criterio de implementación.",
+      "status": "base"
+    },
+    {
+      "id": "S3",
+      "path": "D:\\AP\\AP_Knowledge_OS\\03_PROYECTOS\\VisionPro\\03_Producto_VisionPro\\PRD_VisionPro.md",
+      "use": "Problema, usuarios, objetivos, no objetivos y riesgos del producto.",
+      "status": "draft"
+    },
+    {
+      "id": "S4",
+      "path": "D:\\AP\\AP_Knowledge_OS\\03_PROYECTOS\\VisionPro\\04_Tecnologia_Arquitectura\\VisionPro_Edge_Node.md",
+      "use": "Funciones y razones operativas para procesar cerca de la obra.",
+      "status": "draft"
+    },
+    {
+      "id": "S5",
+      "path": "D:\\AP\\AP_Knowledge_OS\\02_EMPRESAS\\GEN+\\03_GEN+-Marca\\GENplus-Branding-Design-System.md",
+      "use": "Paleta, tipografía y reglas de identidad GEN+.",
+      "status": "active"
+    },
+    {
+      "id": "S6",
+      "path": "D:\\AP\\AP_Knowledge_OS\\AI Summit GEN+\\presentacion-agentes-ia-construccion.html",
+      "use": "Referencia de cobertura temática previa; no se replica su composición ni su copy extenso.",
+      "status": "reference"
+    },
+    {
+      "id": "S7",
+      "path": "D:\\AP\\AP_Knowledge_OS\\02_EMPRESAS\\GEN+\\02_GEN+-Producto-IA\\GEN+-VisionPro-Sistema-Camaras-EdgeAI.md",
+      "use": "Consultado para contexto; sus cifras y comparaciones se excluyen hasta validación primaria.",
+      "status": "requires_validation"
+    },
+    {
+      "id": "S8",
+      "url": "https://www.mckinsey.com/capabilities/operations/our-insights/delivering-on-construction-productivity-is-no-longer-optional",
+      "use": "Gasto global de construccion 2023 y proyeccion 2040; comparacion de productividad 2000-2022.",
+      "status": "primary_research"
+    },
+    {
+      "id": "S9",
+      "url": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai/",
+      "use": "Adopcion empresarial de IA 2025, experimentacion y escalamiento de sistemas agentic.",
+      "status": "primary_survey"
+    },
+    {
+      "id": "S10",
+      "url": "https://hai.stanford.edu/ai-index/2025-ai-index-report",
+      "use": "Progreso de rendimiento en benchmarks y limites de interpretar benchmark como comprension general.",
+      "status": "primary_report"
+    },
+    {
+      "id": "S11",
+      "url": "https://openai.com/index/march-funding-updates/",
+      "use": "Financiacion OpenAI de US$40B y valoracion post-money de US$300B anunciada el 31-03-2025.",
+      "status": "official_company"
+    },
+    {
+      "id": "S12",
+      "url": "https://www.anthropic.com/news/anthropic-raises-series-f-at-usd183b-post-money-valuation",
+      "use": "Serie F de Anthropic por US$13B y valoracion post-money de US$183B anunciada el 02-09-2025.",
+      "status": "official_company"
+    },
+    {
+      "id": "S13",
+      "url": "https://openai.com/index/introducing-chatgpt-agent/",
+      "use": "Patron ChatGPT agent: investigacion, accion con computadora, conectores y control del usuario.",
+      "status": "official_product"
+    },
+    {
+      "id": "S14",
+      "url": "https://x.ai/news/grok-build-cli",
+      "use": "Grok Build, subagentes en paralelo, modo headless e integracion de agentes.",
+      "status": "official_product"
+    },
+    {
+      "id": "S15",
+      "path": "D:\\AP\\AP_Knowledge_OS\\02_EMPRESAS\\GEN+\\00_SO-GEN+\\5. GEN+ Proyectos-GEN+.md",
+      "use": "Corte interno de portafolio GEN+ al 28-05-2026: 68 proyectos registrados por siete lineas de servicio.",
+      "status": "internal_verified"
+    },
+    {
+      "id": "S16",
+      "url": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-how-organizations-are-rewiring-to-capture-value",
+      "use": "Rediseño de workflows, gobierno, liderazgo y practicas vinculadas a captura de valor con IA.",
+      "status": "primary_survey"
+    }
+  ]
+}

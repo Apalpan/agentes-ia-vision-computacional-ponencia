@@ -1,0 +1,297 @@
+{
+  "deck": "agentes-ia-vision-computacional-ponencia",
+  "updated": "2026-07-18",
+  "policy": "No existe footage real verificable en las carpetas autorizadas del vault (inventario 2026-07-17). Todos los clips son motion graphics renderizados localmente con Remotion y se declaran en pantalla como representación conceptual. Ningún clip simula footage real ni resultados de un despliegue.",
+  "assets": [
+    {
+      "id": "clip-opening",
+      "file": "media/clips/opening.mp4",
+      "source": "Render local Remotion · composición OpeningClip (src/remotion/clips)",
+      "license": "GEN+ interno · generado en este repositorio",
+      "status": "conceptual",
+      "usedIn": [
+        "film-gen-intro"
+      ],
+      "notes": "MP4 H.264 sin audio, 965 KB. Reproducción offline; autoplay muted en interludios y activación manual en escenas técnicas."
+    },
+    {
+      "id": "poster-opening",
+      "file": "media/posters/opening.png",
+      "source": "Frame 190 de la composición OpeningClip (remotion still)",
+      "license": "GEN+ interno · generado en este repositorio",
+      "status": "conceptual",
+      "usedIn": [
+        "film-gen-intro"
+      ],
+      "notes": "Poster y fallback estático del clip."
+    },
+    {
+      "id": "clip-data-bottleneck",
+      "file": "media/clips/data-bottleneck.mp4",
+      "source": "Render local Remotion · composición DataBottleneckClip (src/remotion/clips)",
+      "license": "GEN+ interno · generado en este repositorio",
+      "status": "conceptual",
+      "usedIn": [
+        "film-data-bottleneck"
+      ],
+      "notes": "MP4 H.264 sin audio, 1398 KB. Reproducción offline; autoplay muted en interludios y activación manual en escenas técnicas."
+    },
+    {
+      "id": "poster-data-bottleneck",
+      "file": "media/posters/data-bottleneck.png",
+      "source": "Frame 270 de la composición DataBottleneckClip (remotion still)",
+      "license": "GEN+ interno · generado en este repositorio",
+      "status": "conceptual",
+      "usedIn": [
+        "film-data-bottleneck"
+      ],
+      "notes": "Poster y fallback estático del clip."
+    },
+    {
+      "id": "clip-ai-opportunity",
+      "file": "media/clips/ai-opportunity.mp4",
+      "source": "Render local Remotion · composición AiOpportunityClip (src/remotion/clips)",
+      "license": "GEN+ interno · generado en este repositorio",
+      "status": "conceptual",
+      "usedIn": [
+        "film-ai-opportunity"
+      ],
+      "notes": "MP4 H.264 sin audio, 1091 KB. Reproducción offline; autoplay muted en interludios y activación manual en escenas técnicas."
+    },
+    {
+      "id": "poster-ai-opportunity",
+      "file": "media/posters/ai-opportunity.png",
+      "source": "Frame 304 de la composición AiOpportunityClip (remotion still)",
+      "license": "GEN+ interno · generado en este repositorio",
+      "status": "conceptual",
+      "usedIn": [
+        "film-ai-opportunity"
+      ],
+      "notes": "Poster y fallback estático del clip."
+    },
+    {
+      "id": "clip-vision-to-event",
+      "file": "media/clips/vision-to-event.mp4",
+      "source": "Render local Remotion · composición VisionToEventClip (src/remotion/clips)",
+      "license": "GEN+ interno · generado en este repositorio",
+      "status": "conceptual",
+      "usedIn": [
+        "camera-lab"
+      ],
+      "notes": "MP4 H.264 sin audio, 977 KB. Reproducción offline; autoplay muted en interludios y activación manual en escenas técnicas."
+    },
+    {
+      "id": "poster-vision-to-event",
+      "file": "media/posters/vision-to-event.png",
+      "source": "Frame 258 de la composición VisionToEventClip (remotion still)",
+      "license": "GEN+ interno · generado en este repositorio",
+      "status": "conceptual",
+      "usedIn": [
+        "camera-lab"
+      ],
+      "notes": "Poster y fallback estático del clip."
+    },
+    {
+      "id": "clip-edge-local",
+      "file": "media/clips/edge-local.mp4",
+      "source": "Render local Remotion · composición EdgeLocalProtocolClip (src/remotion/clips)",
+      "license": "GEN+ interno · generado en este repositorio",
+      "status": "conceptual",
+      "usedIn": [
+        "edge-pipeline"
+      ],
+      "notes": "MP4 H.264 sin audio, 800 KB. Reproducción offline; autoplay muted en interludios y activación manual en escenas técnicas."
+    },
+    {
+      "id": "poster-edge-local",
+      "file": "media/posters/edge-local.png",
+      "source": "Frame 186 de la composición EdgeLocalProtocolClip (remotion still)",
+      "license": "GEN+ interno · generado en este repositorio",
+      "status": "conceptual",
+      "usedIn": [
+        "edge-pipeline"
+      ],
+      "notes": "Poster y fallback estático del clip."
+    },
+    {
+      "id": "clip-voice-protocol",
+      "file": "media/clips/voice-protocol.mp4",
+      "source": "Render local Remotion · composición VoiceProtocolClip (src/remotion/clips)",
+      "license": "GEN+ interno · generado en este repositorio",
+      "status": "conceptual",
+      "usedIn": [
+        "agent-anatomy"
+      ],
+      "notes": "MP4 H.264 sin audio, 798 KB. Reproducción offline; autoplay muted en interludios y activación manual en escenas técnicas."
+    },
+    {
+      "id": "poster-voice-protocol",
+      "file": "media/posters/voice-protocol.png",
+      "source": "Frame 188 de la composición VoiceProtocolClip (remotion still)",
+      "license": "GEN+ interno · generado en este repositorio",
+      "status": "conceptual",
+      "usedIn": [
+        "agent-anatomy"
+      ],
+      "notes": "Poster y fallback estático del clip."
+    },
+    {
+      "id": "clip-gplus-brain",
+      "file": "media/clips/gplus-brain.mp4",
+      "source": "Render local Remotion · composición GPlusBrainClip (src/remotion/clips)",
+      "license": "GEN+ interno · generado en este repositorio",
+      "status": "conceptual",
+      "usedIn": [
+        "agent-anatomy",
+        "film-agent-brain"
+      ],
+      "notes": "MP4 H.264 sin audio, 2775 KB. Reproducción offline; autoplay muted en interludios y activación manual en escenas técnicas."
+    },
+    {
+      "id": "poster-gplus-brain",
+      "file": "media/posters/gplus-brain.png",
+      "source": "Frame 330 de la composición GPlusBrainClip (remotion still)",
+      "license": "GEN+ interno · generado en este repositorio",
+      "status": "conceptual",
+      "usedIn": [
+        "agent-anatomy",
+        "film-agent-brain"
+      ],
+      "notes": "Poster y fallback estático del clip."
+    },
+    {
+      "id": "clip-agent-loop",
+      "file": "media/clips/agent-loop.mp4",
+      "source": "Render local Remotion · composición AgentLoopClip (src/remotion/clips)",
+      "license": "GEN+ interno · generado en este repositorio",
+      "status": "conceptual",
+      "usedIn": [
+        "incident"
+      ],
+      "notes": "MP4 H.264 sin audio, 882 KB. Reproducción offline; autoplay muted en interludios y activación manual en escenas técnicas."
+    },
+    {
+      "id": "poster-agent-loop",
+      "file": "media/posters/agent-loop.png",
+      "source": "Frame 300 de la composición AgentLoopClip (remotion still)",
+      "license": "GEN+ interno · generado en este repositorio",
+      "status": "conceptual",
+      "usedIn": [
+        "incident"
+      ],
+      "notes": "Poster y fallback estático del clip."
+    },
+    {
+      "id": "clip-multi-agent",
+      "file": "media/clips/multi-agent.mp4",
+      "source": "Render local Remotion · composición MultiAgentProtocolClip (src/remotion/clips)",
+      "license": "GEN+ interno · generado en este repositorio",
+      "status": "conceptual",
+      "usedIn": [
+        "multiagent",
+        "film-multiagent"
+      ],
+      "notes": "MP4 H.264 sin audio, 837 KB. Reproducción offline; autoplay muted en interludios y activación manual en escenas técnicas."
+    },
+    {
+      "id": "poster-multi-agent",
+      "file": "media/posters/multi-agent.png",
+      "source": "Frame 188 de la composición MultiAgentProtocolClip (remotion still)",
+      "license": "GEN+ interno · generado en este repositorio",
+      "status": "conceptual",
+      "usedIn": [
+        "multiagent",
+        "film-multiagent"
+      ],
+      "notes": "Poster y fallback estático del clip."
+    },
+    {
+      "id": "clip-human-gate",
+      "file": "media/clips/human-gate.mp4",
+      "source": "Render local Remotion · composición HumanGateProtocolClip (src/remotion/clips)",
+      "license": "GEN+ interno · generado en este repositorio",
+      "status": "conceptual",
+      "usedIn": [
+        "human-gate"
+      ],
+      "notes": "MP4 H.264 sin audio, 719 KB. Reproducción offline; autoplay muted en interludios y activación manual en escenas técnicas."
+    },
+    {
+      "id": "poster-human-gate",
+      "file": "media/posters/human-gate.png",
+      "source": "Frame 188 de la composición HumanGateProtocolClip (remotion still)",
+      "license": "GEN+ interno · generado en este repositorio",
+      "status": "conceptual",
+      "usedIn": [
+        "human-gate"
+      ],
+      "notes": "Poster y fallback estático del clip."
+    },
+    {
+      "id": "clip-pilot-protocol",
+      "file": "media/clips/pilot-protocol.mp4",
+      "source": "Render local Remotion · composición PilotProtocolClip (src/remotion/clips)",
+      "license": "GEN+ interno · generado en este repositorio",
+      "status": "conceptual",
+      "usedIn": [
+        "pilot"
+      ],
+      "notes": "MP4 H.264 sin audio, 762 KB. Reproducción offline; autoplay muted en interludios y activación manual en escenas técnicas."
+    },
+    {
+      "id": "poster-pilot-protocol",
+      "file": "media/posters/pilot-protocol.png",
+      "source": "Frame 190 de la composición PilotProtocolClip (remotion still)",
+      "license": "GEN+ interno · generado en este repositorio",
+      "status": "conceptual",
+      "usedIn": [
+        "pilot"
+      ],
+      "notes": "Poster y fallback estático del clip."
+    },
+    {
+      "id": "clip-ai-native",
+      "file": "media/clips/ai-native.mp4",
+      "source": "Render local Remotion · composición AiNativeClip (src/remotion/clips)",
+      "license": "GEN+ interno · generado en este repositorio",
+      "status": "conceptual",
+      "usedIn": [
+        "film-ai-native"
+      ],
+      "notes": "MP4 H.264 sin audio, 1430 KB. Reproducción offline; autoplay muted en interludios y activación manual en escenas técnicas."
+    },
+    {
+      "id": "poster-ai-native",
+      "file": "media/posters/ai-native.png",
+      "source": "Frame 334 de la composición AiNativeClip (remotion still)",
+      "license": "GEN+ interno · generado en este repositorio",
+      "status": "conceptual",
+      "usedIn": [
+        "film-ai-native"
+      ],
+      "notes": "Poster y fallback estático del clip."
+    },
+    {
+      "id": "clip-closing",
+      "file": "media/clips/closing.mp4",
+      "source": "Render local Remotion · composición ClosingClip (src/remotion/clips)",
+      "license": "GEN+ interno · generado en este repositorio",
+      "status": "conceptual",
+      "usedIn": [
+        "closing"
+      ],
+      "notes": "MP4 H.264 sin audio, 705 KB. Reproducción offline; autoplay muted en interludios y activación manual en escenas técnicas."
+    },
+    {
+      "id": "poster-closing",
+      "file": "media/posters/closing.png",
+      "source": "Frame 186 de la composición ClosingClip (remotion still)",
+      "license": "GEN+ interno · generado en este repositorio",
+      "status": "conceptual",
+      "usedIn": [
+        "closing"
+      ],
+      "notes": "Poster y fallback estático del clip."
+    }
+  ]
+}
