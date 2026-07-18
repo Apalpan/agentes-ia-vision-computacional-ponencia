@@ -1,83 +1,90 @@
-# Agentes IA + Visión Computacional · GEN+
+# Sistemas Agentic + AI First · GEN+
 
-Keynote interactiva 16:9 (HTML offline) + motor temporal Remotion (MP4 y clips) para la ponencia GEN+ sobre agentes IA, visión computacional y el loop operativo de decisiones en construcción.
+Keynote interactiva 16:9 (HTML offline) + máster temporal Remotion para una ponencia GEN+ dirigida a profesionales y directivos AEC.
 
 **LIVE:** https://apalpan.github.io/agentes-ia-vision-computacional-ponencia/
-Deploy: `npm run build` → push de `dist/` a la rama `gh-pages` (la rama `main` lleva el código).
+
+Publicación: `main` conserva el producto y `gh-pages` sirve el build estático generado desde `dist/`.
 
 ## Tesis
 
-> **Cuando la obra puede ver, el agente puede actuar.**
-> Cierre: *No necesitamos una obra llena de IA. Necesitamos una obra que vea, decida y aprenda.*
+> **La ventaja no es usar IA. Es entender bien el problema.**
+
+El arco se organiza en tres actos:
+
+1. Problema y oportunidad.
+2. Sistemas agentic.
+3. AI First.
 
 ## Ejecutar
 
 ```powershell
 npm install
 npm run dev        # deck interactivo en http://127.0.0.1:5173
-npm run studio     # Remotion Studio (timeline de la keynote y los clips)
+npm run studio     # Remotion Studio
 ```
 
 ## Controles en vivo
 
 - `←` / `→` / `Space` · `PageUp` / `PageDown`: navegar. `Home` / `End`: extremos.
-- `O`: overview · `N`: notas del presentador (intención/apertura/explicación/transición/advertencia/cue + cronómetro) · `F`: fullscreen · `R`: reiniciar escena · `Esc`: cerrar.
-- Swipe horizontal en táctil. URL directa: `/?slide=9`.
-- Botones `▶ Clip` (portada, demo de cámara, incidente, cierre): clips conceptuales locales, silenciados, con poster y fallback; nunca bloquean la navegación.
-- Cámara (escena 08): local y opcional, sin biometría; con permiso denegado la escena continúa en modo conceptual.
+- `O`: overview · `N`: notas del presentador · `F`: fullscreen · `R`: reiniciar escena · `Esc`: cerrar.
+- Swipe horizontal en táctil. URL directa: `/?slide=14`.
+- Existe un solo film visible en el arco: intro GEN+ en la escena 2. Autoplay muted, pausa, fullscreen, poster y fallback para reduced-motion.
 
 ## Arquitectura
 
 ```text
 src/
-  content/    contrato de escenas (claim, rol narrativo, evidencia, notas, timing.json)
-  scenes/     15 escenas (una por archivo, silueta visual propia)
-  components/ SceneFrame, ClipPlayer, assetUrl
-  motion/     tokens temporales + MotionContext/Reveal (CSS interactivo ↔ Remotion determinista)
-  deck/       shell interactivo (navegación, overlays, notas)
-  remotion/   Root, SceneRender, KeynoteFull y 10 clips conceptuales
-  styles/     tokens OKLCH GEN+ (semánticos: signal/perception/decision/evidence/risk), base, deck, escenas
+  content/    contrato de 20 escenas + timing.json
+  scenes/     AiFirstKeynote.tsx + biblioteca técnica complementaria
+  components/ SceneFrame, CinematicInterlude, assetUrl
+  motion/     MotionContext/Reveal: CSS interactivo ↔ Remotion determinista
+  deck/       navegación, overview y notas
+  remotion/   KeynoteFull + biblioteca de 13 clips conceptuales
+  styles/     tokens GEN+ + sistema AI First
 public/
   assets/     logos GEN+
-  media/      clips MP4 + posters + media-manifest.json (procedencia)
-scripts/      verify, qa (Playwright+axe+contact sheet), qa-temporal, render-media
-docs/         narrative.md (arco final) · audit-ultra-premium.md (auditoría)
-qa/           screenshots por resolución, temporal, contact-sheet.png, qa-report.json
-outputs/      keynote-full.mp4 + clips renderizados
+  media/      MP4, posters y media-manifest.json
+scripts/      verify, QA visual, QA temporal y render de media
+qa/           capturas, contact sheet y 100 estados temporales
+outputs/      keynote-full.mp4
 ```
 
-Las mismas escenas alimentan el deck HTML y el video: `MotionContext` decide si el tiempo lo lleva CSS (`@starting-style`, keyframes) o el frame de Remotion (determinista, sin reloj ni azar).
-
-## Render (Remotion, 1920×1080 @ 30 fps)
+## Render (1920×1080 @ 30 fps)
 
 ```powershell
-npm run render:deck      # outputs/keynote-full.mp4 (~2:13 min)
-npm run render:clips     # 10 clips + posters → outputs/clips + public/media
-npm run render:opening   # clips individuales…
-npm run render:vision
-npm run render:loop
-npm run render:closing
+npm run render:deck      # outputs/keynote-full.mp4
+node scripts/render-media.mjs opening  # film GEN+ + poster
+npm run render:clips     # biblioteca completa de clips complementarios
 ```
 
-Usa el Chrome/Edge local (ver `remotion.config.ts`); no descarga navegadores. Render reproducible: sin `Date.now()`, sin aleatorios, audio desactivado.
+El deck web y el MP4 usan las mismas escenas. El máster actual contiene 4,942 fotogramas, 30 fps y 164.73 s.
 
-## Validar (gate)
+## Validar
 
 ```powershell
-npm run check        # typecheck + build + verify + qa
-npm run qa:temporal  # estados 0/25/50/75/100 % por escena desde keynote-full.mp4
+npm run check        # typecheck + build + verify + QA visual/a11y
+npm run qa:temporal  # 20 escenas × 5 estados temporales
 ```
 
-`verify` valida el contrato (12–18 escenas, notas completas, manifiestos con procedencia, copy esencial). `qa` recorre las 15 escenas a 1920×1080 y 1440×810 con Chrome local: overflow, consola, axe (serio/crítico), teclado, overlays, demo de eventos, cámara denegada, incidente completo, móvil 390, reduced motion y regenera `qa/contact-sheet.png`.
+El gate exige:
+
+- 20 escenas y exactamente un film en el arco principal;
+- notas completas y manifiestos con procedencia;
+- dos resoluciones de escritorio, móvil 390, teclado y overlays;
+- autoplay/fallback, reduced motion, axe y cero overflow;
+- patrones Agent Mode, Team of Experts y primer loop presentes;
+- 100 fotogramas temporales no vacíos.
 
 ## Honestidad de contenido
 
-- Las fuentes viven en `public/source-manifest.json`; los tags no se muestran al público (están en las notas del presentador).
-- Ninguna cifra de precisión/latencia/mercado: las fuentes del vault no las sostienen. Donde haría falta un número se dice explícitamente que se calibra en el piloto (`Requiere validación`).
-- No existe footage real verificable en las carpetas autorizadas: los 10 clips son motion graphics **declarados como representación conceptual** en pantalla y en `public/media/media-manifest.json`.
-- Demos de cámara e incidente: conceptuales, locales, sin biometría, sin modelo validado.
-- Tipografía display: la marca define Plus Jakarta Sans + Ruberoid; Ruberoid no está disponible como asset licenciado en el repo, se usa Space Grotesk como sustituto de escenario (documentado).
+- Fuentes: `public/source-manifest.json` (vault, investigación primaria y páginas oficiales).
+- Las cifras de mercado, productividad, adopción, inversión y benchmarks están fechadas y enlazadas a su fuente.
+- “Internal-first” se presenta como principio operativo GEN+, no como estadística universal.
+- La escena final usa un corte interno verificable de 68 proyectos registrados; no inventa clientes, logos ni resultados.
+- El film GEN+ es motion graphics conceptual generado localmente con Remotion; no simula footage ni despliegues reales.
+- Ruberoid no está licenciado como asset del repo; Space Grotesk se usa como display y Plus Jakarta Sans como texto.
 
-## Vault
+## Límites
 
-`D:\AP\AP_Knowledge_OS` es fuente de solo lectura. Este repo no escribe, publica ni hace push.
+`D:\AP\AP_Knowledge_OS` se consulta como fuente. El repo no publica ni hace push sin autorización explícita.

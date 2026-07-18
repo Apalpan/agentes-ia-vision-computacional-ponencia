@@ -107,7 +107,7 @@ export default function Deck({ scenes }: { scenes: SceneContract[] }) {
       <div className="ambient-grid" aria-hidden="true" />
       <header className="deck-header">
         <img src="./assets/gen-logo-white.png" alt="GEN+" />
-        <p>AGENTES IA × VISIÓN COMPUTACIONAL</p>
+        <p>PROBLEMA × SISTEMAS AGENTIC × AI FIRST</p>
         <span className="slide-counter">{String(current + 1).padStart(2, '0')} / {String(scenes.length).padStart(2, '0')}</span>
       </header>
 

@@ -19,6 +19,7 @@ import {
   VoiceProtocolClip,
 } from './clips/FieldProtocolClips'
 import { GPlusBrainClip } from './clips/GPlusBrainClip'
+import { AiNativeClip, AiOpportunityClip, DataBottleneckClip } from './clips/AiNativeInterludes'
 
 const { fps, width, height, transitionFrames } = timing
 
@@ -102,6 +103,9 @@ export function RemotionRoot() {
       <Composition id="HumanGateProtocolClip" component={HumanGateProtocolClip} durationInFrames={clipDuration('human-gate')} fps={fps} width={width} height={height} />
       <Composition id="PilotProtocolClip" component={PilotProtocolClip} durationInFrames={clipDuration('pilot-protocol')} fps={fps} width={width} height={height} />
       <Composition id="GPlusBrainClip" component={GPlusBrainClip} durationInFrames={clipDuration('gplus-brain')} fps={fps} width={width} height={height} />
+      <Composition id="DataBottleneckClip" component={DataBottleneckClip} durationInFrames={clipDuration('data-bottleneck')} fps={fps} width={width} height={height} />
+      <Composition id="AiOpportunityClip" component={AiOpportunityClip} durationInFrames={clipDuration('ai-opportunity')} fps={fps} width={width} height={height} />
+      <Composition id="AiNativeClip" component={AiNativeClip} durationInFrames={clipDuration('ai-native')} fps={fps} width={width} height={height} />
     </>
   )
 }

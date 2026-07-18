@@ -1,39 +1,35 @@
 import { SceneFrame } from '../components/SceneFrame'
 import { Reveal } from '../motion/MotionContext'
 
+const LEVELS = [
+  ['CHATBOT', 'Responde', 'texto', 'Una pregunta produce una respuesta.'],
+  ['ASISTENTE', 'Ayuda', 'borrador', 'Acelera una tarea, pero el usuario mantiene el proceso.'],
+  ['AGENTE', 'Ejecuta', 'resultado', 'Persigue un objetivo, usa herramientas y verifica.'],
+  ['MULTIAGENTE', 'Coordina', 'proceso', 'Especialistas cierran partes verificables bajo un orquestador.'],
+] as const
+
 export function Threshold() {
   return (
     <SceneFrame
       eyebrow="ACTO I · EL UMBRAL"
-      title="Un asistente responde. Un agente persigue un objetivo."
-      lead="El salto no es conversar mejor: es pasar de generar texto a observar, usar herramientas, corregir y verificar hasta cerrar un resultado."
+      title="La madurez no se mide por cómo conversa. Se mide por lo que consigue cerrar."
+      lead="El salto ocurre cuando la IA deja de producir texto y empieza a mantener estado, usar herramientas, coordinar especialistas y verificar resultados."
       className="threshold-scene"
     >
-      <div className="threshold-line">
-        <Reveal order={1} as="section" className="threshold-side">
-          <span>ASISTENTE</span>
-          <div className="threshold-chain">
-            <b>Pregunta</b>
-            <i className="chain-arrow" aria-hidden="true" />
-            <b>Respuesta</b>
-          </div>
-          <p>Reactivo. La salida termina en el chat: alguien todavía tiene que hacer el trabajo.</p>
-        </Reveal>
-        <Reveal order={2} className="threshold-gate" aria-hidden="true">
-          <i /><em>EL UMBRAL</em><i />
-        </Reveal>
-        <Reveal order={3} as="section" className="threshold-side threshold-agent">
-          <span>AGENTE</span>
-          <div className="threshold-chain">
-            <b>Objetivo</b>
-            <i className="chain-arrow" aria-hidden="true" />
-            <b>Acción</b>
-            <i className="chain-arrow" aria-hidden="true" />
-            <b>Verificación</b>
-          </div>
-          <p>Mantiene estado, usa herramientas y continúa hasta cerrar el resultado. No todo chatbot es agente.</p>
-        </Reveal>
+      <div className="threshold-ladder">
+        {LEVELS.map(([name, verb, output, detail], index) => (
+          <Reveal key={name} order={index + 1} as="section" className={`threshold-level ${index >= 2 ? 'is-operational' : ''}`}>
+            <span>{String(index + 1).padStart(2, '0')}</span>
+            <small>{name}</small>
+            <h3>{verb}</h3>
+            <strong>SALE · {output}</strong>
+            <p>{detail}</p>
+          </Reveal>
+        ))}
       </div>
+      <Reveal order={5} className="threshold-rule">
+        <span>CONVERSA</span><i aria-hidden="true" /><b>EL UMBRAL</b><i aria-hidden="true" /><span>OPERA</span>
+      </Reveal>
     </SceneFrame>
   )
 }

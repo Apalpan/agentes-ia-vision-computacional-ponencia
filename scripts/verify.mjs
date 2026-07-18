@@ -27,7 +27,9 @@ const content = readFileSync(resolve(root, 'src/content/scenes.tsx'), 'utf8')
 const ids = [...content.matchAll(/^\s{4}id: '([^']+)'/gm)].map((match) => match[1])
 const unique = new Set(ids)
 if (ids.length !== unique.size) throw new Error(`Ids de escena duplicados: ${ids.length}/${unique.size}`)
-if (ids.length < 12 || ids.length > 18) throw new Error(`El arco debe tener 12–18 escenas; hay ${ids.length}`)
+if (ids.length !== 20) throw new Error(`El arco debe tener exactamente 20 escenas; hay ${ids.length}`)
+const filmIds = ids.filter((id) => id.startsWith('film-'))
+if (filmIds.length !== 1) throw new Error(`Debe existir exactamente 1 interludio cinematográfico en el arco principal; hay ${filmIds.length}`)
 
 const timingIds = timing.scenes.map((scene) => scene.id)
 for (const id of ids) {
@@ -46,10 +48,12 @@ for (const scene of timing.scenes) {
 }
 
 const requiredCopy = [
-  'Cuando la obra puede',
-  'La cámara no es el producto',
-  'No necesitamos una obra llena de IA',
-  'un evento crítico',
+  'La ventaja no es usar IA',
+  'Tres ideas. Una sola tesis.',
+  'Entenderá mejor el problema',
+  'Si no funciona dentro de tu empresa',
+  'AI First no es añadir un chatbot',
+  '¿Quieres ser una más?',
 ]
 for (const phrase of requiredCopy) {
   if (!content.includes(phrase)) throw new Error(`Falta copy esencial: ${phrase}`)
@@ -66,7 +70,7 @@ const bannedMatches = content.match(banned)
 if (bannedMatches) throw new Error(`Contenido no permitido: ${[...new Set(bannedMatches)].join(', ')}`)
 
 const manifest = JSON.parse(readFileSync(resolve(root, 'public/source-manifest.json'), 'utf8'))
-if (!Array.isArray(manifest.sources) || manifest.sources.length < 6) {
+if (!Array.isArray(manifest.sources) || manifest.sources.length < 16) {
   throw new Error('El manifiesto de fuentes está incompleto')
 }
 

@@ -30,11 +30,11 @@ export function Closing() {
       <div className="closing-copy">
         <Reveal as="p" order={0} className="eyebrow">CIERRE · AI CONSTRUCTION</Reveal>
         <Reveal as="h2" order={1}>
-          No necesitamos una obra llena de IA.{' '}
-          <em>Necesitamos una obra que vea, decida y aprenda.</em>
+          La ventaja no será usar IA.{' '}
+          <em>Será operar con IA.</em>
         </Reveal>
         <Reveal order={2} className="closing-action">
-          <span>DISEÑA TU PRIMER LOOP</span>
+          <span>DISEÑA EL PRIMER LOOP AI NATIVE</span>
           <div className="loop-slots">
             <b>un evento crítico</b>
             <i aria-hidden="true" />

@@ -16,7 +16,7 @@ export function SceneRender({ scene, index, total }: { scene: SceneContract; ind
         <div className="ambient-grid" aria-hidden="true" />
         <header className="deck-header">
           <img src={assetUrl('assets/gen-logo-white.png')} alt="GEN+" />
-          <p>AGENTES IA × VISIÓN COMPUTACIONAL</p>
+          <p>PROBLEMA × SISTEMAS AGENTIC × AI FIRST</p>
           <span className="slide-counter">{String(index + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}</span>
         </header>
         <section className="deck-stage">

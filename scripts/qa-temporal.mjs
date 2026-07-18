@@ -11,6 +11,22 @@ if (!existsSync(video)) {
   throw new Error('Falta outputs/keynote-full.mp4 — ejecuta antes: npm run render:deck')
 }
 
+const renderInputs = [
+  'src/content/scenes.tsx',
+  'src/content/timing.json',
+  'src/remotion/Root.tsx',
+  'src/remotion/clips/OpeningClip.tsx',
+  'src/scenes/AiFirstKeynote.tsx',
+  'src/styles/ai-first-keynote.css',
+  'src/components/CinematicInterlude.tsx',
+  'public/media/media-manifest.json',
+].map((file) => resolve(root, file))
+const videoMtime = statSync(video).mtimeMs
+const staleInput = renderInputs.find((file) => existsSync(file) && statSync(file).mtimeMs > videoMtime)
+if (staleInput) {
+  throw new Error(`outputs/keynote-full.mp4 está desactualizado respecto a ${staleInput} — ejecuta antes: npm run render:deck`)
+}
+
 const outDir = resolve(root, 'qa', 'temporal')
 mkdirSync(outDir, { recursive: true })
 

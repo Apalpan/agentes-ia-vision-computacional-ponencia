@@ -4,21 +4,26 @@
   "height": 1080,
   "transitionFrames": 12,
   "scenes": [
-    { "id": "cover", "durationInFrames": 300, "stableFrame": 280 },
-    { "id": "signals", "durationInFrames": 240, "stableFrame": 220 },
-    { "id": "threshold", "durationInFrames": 240, "stableFrame": 220 },
-    { "id": "vision-grammar", "durationInFrames": 320, "stableFrame": 300 },
-    { "id": "edge-pipeline", "durationInFrames": 270, "stableFrame": 250 },
-    { "id": "agent-anatomy", "durationInFrames": 260, "stableFrame": 240 },
-    { "id": "loop", "durationInFrames": 330, "stableFrame": 310 },
-    { "id": "camera-lab", "durationInFrames": 280, "stableFrame": 260 },
-    { "id": "incident", "durationInFrames": 380, "stableFrame": 360 },
-    { "id": "multiagent", "durationInFrames": 240, "stableFrame": 220 },
-    { "id": "human-gate", "durationInFrames": 250, "stableFrame": 230 },
-    { "id": "pilot", "durationInFrames": 240, "stableFrame": 220 },
-    { "id": "metrics", "durationInFrames": 240, "stableFrame": 220 },
-    { "id": "aec-criterion", "durationInFrames": 230, "stableFrame": 210 },
-    { "id": "closing", "durationInFrames": 330, "stableFrame": 310 }
+    { "id": "cover", "durationInFrames": 270, "stableFrame": 250 },
+    { "id": "film-gen-intro", "durationInFrames": 240, "stableFrame": 220 },
+    { "id": "agenda", "durationInFrames": 230, "stableFrame": 210 },
+    { "id": "market-gap", "durationInFrames": 270, "stableFrame": 250 },
+    { "id": "triple-impact", "durationInFrames": 240, "stableFrame": 220 },
+    { "id": "information-dispersed", "durationInFrames": 260, "stableFrame": 240 },
+    { "id": "ai-momentum", "durationInFrames": 270, "stableFrame": 250 },
+    { "id": "innovation-automation-redesign", "durationInFrames": 250, "stableFrame": 230 },
+    { "id": "human-and-ai", "durationInFrames": 280, "stableFrame": 260 },
+    { "id": "problem-focus", "durationInFrames": 240, "stableFrame": 220 },
+    { "id": "internal-first", "durationInFrames": 250, "stableFrame": 230 },
+    { "id": "concept-runway", "durationInFrames": 260, "stableFrame": 240 },
+    { "id": "agent-analogy", "durationInFrames": 270, "stableFrame": 250 },
+    { "id": "chatgpt-agent-mode", "durationInFrames": 250, "stableFrame": 230 },
+    { "id": "grok-expert-team", "durationInFrames": 260, "stableFrame": 240 },
+    { "id": "orchestration-stack", "durationInFrames": 250, "stableFrame": 230 },
+    { "id": "multiagent-loop", "durationInFrames": 260, "stableFrame": 240 },
+    { "id": "ai-first-operating-model", "durationInFrames": 270, "stableFrame": 250 },
+    { "id": "first-loop", "durationInFrames": 250, "stableFrame": 230 },
+    { "id": "proof-closing", "durationInFrames": 300, "stableFrame": 280 }
   ],
   "clips": [
     { "id": "opening", "durationInFrames": 210 },
@@ -30,6 +35,9 @@
     { "id": "multi-agent", "durationInFrames": 210 },
     { "id": "human-gate", "durationInFrames": 210 },
     { "id": "pilot-protocol", "durationInFrames": 210 },
-    { "id": "gplus-brain", "durationInFrames": 360 }
+    { "id": "gplus-brain", "durationInFrames": 360 },
+    { "id": "data-bottleneck", "durationInFrames": 300 },
+    { "id": "ai-opportunity", "durationInFrames": 330 },
+    { "id": "ai-native", "durationInFrames": 360 }
   ]
 }

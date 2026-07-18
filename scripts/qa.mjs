@@ -125,30 +125,33 @@ try {
   report.navigation.notes = await page.locator('.notes-overlay').count()
   await page.keyboard.press('Escape')
 
-  // Demo de percepción: emitir evento
-  const cameraIndex = sceneIds.indexOf('camera-lab') + 1
-  await page.goto(`${baseUrl}/?slide=${cameraIndex}`, { waitUntil: 'networkidle' })
-  await page.getByRole('button', { name: 'Emitir evento demo' }).click()
-  await page.locator('.event-card').first().waitFor({ state: 'visible', timeout: 8000 })
-  report.interactions.emitEvent = await page.locator('.event-card').count()
+  // Films: el video debe ser visible y estar reproduciéndose sin depender de un botón.
+  const filmIndex = sceneIds.indexOf('film-gen-intro') + 1
+  await page.goto(`${baseUrl}/?slide=${filmIndex}`, { waitUntil: 'networkidle' })
+  const cinematicVideo = page.locator('.cinematic-interlude video')
+  await cinematicVideo.waitFor({ state: 'visible', timeout: 12000 })
+  await page.waitForTimeout(700)
+  report.interactions.cinematicVisible = await cinematicVideo.count()
+  report.interactions.cinematicPlaying = await cinematicVideo.evaluate((video) => video instanceof HTMLVideoElement && !video.paused && video.readyState >= 2)
 
-  // Cámara denegada: sin permisos concedidos el navegador rechaza getUserMedia
-  await page.getByRole('button', { name: 'Activar cámara local' }).click()
-  await page.locator('.camera-error').waitFor({ state: 'visible', timeout: 15000 })
-  report.interactions.cameraDenied = await page.locator('.camera-error').count()
+  // Patrones clave del nuevo arco: modo agente, team of experts y loop mínimo.
+  const agentModeIndex = sceneIds.indexOf('chatgpt-agent-mode') + 1
+  await page.goto(`${baseUrl}/?slide=${agentModeIndex}`, { waitUntil: 'networkidle' })
+  report.interactions.agentModeWindow = await page.locator('.agent-mode-window').count()
 
-  // Simulación del incidente completa
-  const incidentIndex = sceneIds.indexOf('incident') + 1
-  await page.goto(`${baseUrl}/?slide=${incidentIndex}`, { waitUntil: 'networkidle' })
-  await page.getByRole('button', { name: 'Ejecutar el loop' }).click()
-  await page.locator('.incident-step.is-done').nth(5).waitFor({ state: 'attached', timeout: 20000 })
-  report.interactions.incidentSteps = await page.locator('.incident-step.is-done').count()
+  const grokIndex = sceneIds.indexOf('grok-expert-team') + 1
+  await page.goto(`${baseUrl}/?slide=${grokIndex}`, { waitUntil: 'networkidle' })
+  report.interactions.grokAgents = await page.locator('.grok-agent').count()
+
+  const firstLoopIndex = sceneIds.indexOf('first-loop') + 1
+  await page.goto(`${baseUrl}/?slide=${firstLoopIndex}`, { waitUntil: 'networkidle' })
+  report.interactions.firstLoopSteps = await page.locator('.loop-step').count()
   await context.close()
 
   // Móvil 390×844 en escenas críticas
   const mobile = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1 })
   const mobilePage = await mobile.newPage()
-  for (const index of [1, sceneIds.indexOf('camera-lab') + 1, total]) {
+  for (const index of [1, filmIndex, agentModeIndex, total]) {
     await mobilePage.goto(`${baseUrl}/?slide=${index}`, { waitUntil: 'networkidle' })
     await mobilePage.waitForTimeout(400)
     await mobilePage.screenshot({ path: resolve(screenshotDir, `mobile-${String(index).padStart(2, '0')}.png`), fullPage: true })
@@ -160,7 +163,10 @@ try {
   // Reduced motion
   const reduced = await browser.newContext({ viewport: { width: 1440, height: 810 }, reducedMotion: 'reduce' })
   const reducedPage = await reduced.newPage()
-  await reducedPage.goto(`${baseUrl}/?slide=${sceneIds.indexOf('loop') + 1}`, { waitUntil: 'networkidle' })
+  await reducedPage.goto(`${baseUrl}/?slide=${filmIndex}`, { waitUntil: 'networkidle' })
+  await reducedPage.waitForTimeout(400)
+  report.interactions.reducedMotionPoster = await reducedPage.locator('.cinematic-poster').count()
+  await reducedPage.goto(`${baseUrl}/?slide=${sceneIds.indexOf('first-loop') + 1}`, { waitUntil: 'networkidle' })
   await reducedPage.waitForTimeout(400)
   await reducedPage.screenshot({ path: resolve(screenshotDir, 'reduced-motion-loop.png') })
   await reduced.close()
@@ -182,7 +188,7 @@ try {
     figure{margin:0}
     img{width:100%;border:1px solid rgba(233,240,255,.18);border-radius:8px;display:block}
     figcaption{color:#93a5c6;font-size:11px;margin-top:6px;letter-spacing:.08em}
-  </style></head><body><h1>AGENTES IA × VISIÓN COMPUTACIONAL · CONTACT SHEET (1920×1080)</h1><div class="grid">${tiles}</div></body></html>`)
+  </style></head><body><h1>GEN+ · SISTEMAS AGENTIC × AI FIRST · CONTACT SHEET (1920×1080)</h1><div class="grid">${tiles}</div></body></html>`)
   await sheetPage.waitForTimeout(400)
   await sheetPage.screenshot({ path: resolve(root, 'qa', 'contact-sheet.png'), fullPage: true })
   await sheetContext.close()
@@ -205,13 +211,15 @@ if (report.consoleErrors.length) failures.push(`${report.consoleErrors.length} e
 if (report.accessibility.length) failures.push(`a11y seria en ${report.accessibility.length} escenas`)
 if (report.navigation.arrowRight !== sceneIds[1] || report.navigation.end !== sceneIds.at(-1)) failures.push('navegación de teclado')
 if (report.navigation.overview !== 1 || report.navigation.notes !== 1) failures.push('overlays overview/notas')
-if (report.interactions.emitEvent < 1) failures.push('la consola de eventos no emite')
-if (report.interactions.cameraDenied < 1) failures.push('estado cámara denegada sin mensaje')
-if (report.interactions.incidentSteps < 6) failures.push(`simulación de incidente incompleta (${report.interactions.incidentSteps}/6)`)
+if (report.interactions.cinematicVisible !== 1 || report.interactions.cinematicPlaying !== true) failures.push('film principal no visible o sin autoplay')
+if (report.interactions.reducedMotionPoster !== 1) failures.push('film sin fallback para reduced motion')
+if (report.interactions.agentModeWindow !== 1) failures.push('pantallazo conceptual de Agent Mode ausente')
+if (report.interactions.grokAgents !== 4) failures.push(`team of experts incompleto (${report.interactions.grokAgents}/4)`)
+if (report.interactions.firstLoopSteps !== 4) failures.push(`primer loop incompleto (${report.interactions.firstLoopSteps}/4)`)
 
 if (failures.length) {
   console.error(`QA FAIL: ${failures.join('; ')}`)
   process.exit(1)
 }
 
-console.log(`QA PASS: ${total} escenas × 2 resoluciones, móvil, teclado, overlays, demos, cámara denegada, reduced motion, axe y contact sheet.`)
+console.log(`QA PASS: ${total} escenas × 2 resoluciones, móvil, teclado, overlays, film, patrones agentic, reduced motion, axe y contact sheet.`)

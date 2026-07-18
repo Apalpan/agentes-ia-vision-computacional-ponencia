@@ -87,7 +87,7 @@ export function Cover() {
           Cuando la obra puede <em>ver</em>,<br />el agente puede actuar.
         </Reveal>
         <Reveal as="p" order={3} className="cover-sub">
-          Cómo una señal visual activa un sistema que interpreta, decide, escala y conserva evidencia.
+          De señales dispersas a una operación AI Native que interpreta, decide, escala y conserva evidencia.
         </Reveal>
         <Reveal order={4} className="cover-meta">
           <span>Alejandro Palpan</span>

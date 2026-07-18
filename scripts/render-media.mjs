@@ -2,7 +2,7 @@ import { spawnSync } from 'node:child_process'
 import { copyFileSync, mkdirSync, statSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 
-// Renderiza los 9 clips conceptuales con Remotion, genera posters, copia todo a
+// Renderiza los 13 clips conceptuales con Remotion, genera posters, copia todo a
 // public/media/ y reescribe el manifiesto de medios con procedencia.
 const root = resolve(import.meta.dirname, '..')
 const outClips = resolve(root, 'outputs', 'clips')
@@ -11,15 +11,18 @@ const pubPosters = resolve(root, 'public', 'media', 'posters')
 for (const dir of [outClips, pubClips, pubPosters]) mkdirSync(dir, { recursive: true })
 
 const CLIPS = [
-  { id: 'opening', composition: 'OpeningClip', posterFrame: 176, usedIn: ['cover'] },
+  { id: 'opening', composition: 'OpeningClip', posterFrame: 190, usedIn: ['film-gen-intro'] },
+  { id: 'data-bottleneck', composition: 'DataBottleneckClip', posterFrame: 270, usedIn: ['film-data-bottleneck'] },
+  { id: 'ai-opportunity', composition: 'AiOpportunityClip', posterFrame: 304, usedIn: ['film-ai-opportunity'] },
   { id: 'vision-to-event', composition: 'VisionToEventClip', posterFrame: 258, usedIn: ['camera-lab'] },
   { id: 'edge-local', composition: 'EdgeLocalProtocolClip', posterFrame: 186, usedIn: ['edge-pipeline'] },
   { id: 'voice-protocol', composition: 'VoiceProtocolClip', posterFrame: 188, usedIn: ['agent-anatomy'] },
-  { id: 'gplus-brain', composition: 'GPlusBrainClip', posterFrame: 330, usedIn: ['agent-anatomy'] },
+  { id: 'gplus-brain', composition: 'GPlusBrainClip', posterFrame: 330, usedIn: ['agent-anatomy', 'film-agent-brain'] },
   { id: 'agent-loop', composition: 'AgentLoopClip', posterFrame: 300, usedIn: ['incident'] },
-  { id: 'multi-agent', composition: 'MultiAgentProtocolClip', posterFrame: 188, usedIn: ['multiagent'] },
+  { id: 'multi-agent', composition: 'MultiAgentProtocolClip', posterFrame: 188, usedIn: ['multiagent', 'film-multiagent'] },
   { id: 'human-gate', composition: 'HumanGateProtocolClip', posterFrame: 188, usedIn: ['human-gate'] },
   { id: 'pilot-protocol', composition: 'PilotProtocolClip', posterFrame: 190, usedIn: ['pilot'] },
+  { id: 'ai-native', composition: 'AiNativeClip', posterFrame: 334, usedIn: ['film-ai-native'] },
   { id: 'closing', composition: 'ClosingClip', posterFrame: 186, usedIn: ['closing'] },
 ]
 
@@ -57,7 +60,7 @@ const manifest = {
         license: 'GEN+ interno · generado en este repositorio',
         status: 'conceptual',
         usedIn: clip.usedIn,
-        notes: `MP4 H.264 sin audio, ${Math.round(mp4Size / 1024)} KB. Reproducción offline, activación manual, muted.`,
+        notes: `MP4 H.264 sin audio, ${Math.round(mp4Size / 1024)} KB. Reproducción offline; autoplay muted en interludios y activación manual en escenas técnicas.`,
       },
       {
         id: `poster-${clip.id}`,
