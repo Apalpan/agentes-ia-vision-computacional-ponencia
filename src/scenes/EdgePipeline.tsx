@@ -11,16 +11,16 @@ const STATIONS = [
   ['EVIDENCIA', 'cierra y registra'],
 ] as const
 
-const HEALTH = ['ONLINE', 'FEED LOST', 'UPLOAD DELAY', 'INFERENCE ERROR', 'BUFFERING', 'OFFLINE'] as const
+const APPLICATIONS = ['cámara en obra', 'análisis en laptop o Jetson', 'reconocimiento de voz', 'revisión normativa', 'alertas sin internet'] as const
 
 export function EdgePipeline() {
   const motion = useMotion()
   const travel = motion.phase(6)
   return (
     <SceneFrame
-      eyebrow="ACTO II · ARQUITECTURA"
-      title="El evento nace cerca de la cámara. La acción, cerca del contexto."
-      lead="Procesar en el edge protege ancho de banda y continuidad con red inestable. La capa de agentes conecta el evento con reglas, responsables y trazabilidad."
+      eyebrow="ACTO III · EDGE AI"
+      title="IA local, rápida y privada."
+      lead="La IA no siempre debe vivir en la nube: también puede vivir en obra. El evento nace cerca de la cámara y sobrevive a la mala señal."
       className="edge-scene"
       action={<ClipPlayer src="./media/clips/edge-local.mp4" poster="./media/posters/edge-local.png" label="Clip · edge local" />}
     >
@@ -42,16 +42,16 @@ export function EdgePipeline() {
             </Reveal>
           ))}
         </div>
-        <Reveal order={7} className="edge-health" aria-label="Estados de salud del nodo edge">
-          <small>EL SISTEMA SE OPERA — ESTADOS DE SALUD DEL NODO</small>
+        <Reveal order={7} className="edge-health" aria-label="Aplicaciones de Edge AI en campo">
+          <small>APLICACIONES EN CAMPO</small>
           <div>
-            {HEALTH.map((state, index) => (
-              <span key={state} className={index === 0 ? 'is-ok' : ''}>{state}</span>
+            {APPLICATIONS.map((application, index) => (
+              <span key={application} className={index === 0 ? 'is-ok' : ''}>{application}</span>
             ))}
           </div>
         </Reveal>
         <Reveal order={8} as="p" className="edge-rule">
-          No se “envía video a la IA”: se diseña una cadena de decisiones con estados, reintentos, buffer local y evidencia.
+          No se “envía video a la nube”: se diseña una cadena local con buffer, reintentos y evidencia que no se pierde.
         </Reveal>
       </div>
     </SceneFrame>

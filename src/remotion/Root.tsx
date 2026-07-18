@@ -20,6 +20,13 @@ import {
 } from './clips/FieldProtocolClips'
 import { GPlusBrainClip } from './clips/GPlusBrainClip'
 import { AiNativeClip, AiOpportunityClip, DataBottleneckClip } from './clips/AiNativeInterludes'
+import { MarketProductivityOverrunsClip } from './clips/MarketProductivityOverrunsClip'
+import { ProblemFocusTypographyClip } from './clips/ProblemFocusTypographyClip'
+import { AiFirstDefinitionClip, InnovationAutomationRedesignClip } from './clips/InnovationAiFirstSlides'
+import { TechnologyAdoptionImpactClip } from './clips/TechnologyAdoptionImpactClip'
+import { ManMachineContinuumClip } from './clips/ManMachineContinuumClip'
+import { ProductStrategySystemClip } from './clips/ProductStrategySystemClip'
+import { AiMarketGrowthClip } from './clips/AiMarketGrowthClip'
 
 const { fps, width, height, transitionFrames } = timing
 
@@ -106,6 +113,14 @@ export function RemotionRoot() {
       <Composition id="DataBottleneckClip" component={DataBottleneckClip} durationInFrames={clipDuration('data-bottleneck')} fps={fps} width={width} height={height} />
       <Composition id="AiOpportunityClip" component={AiOpportunityClip} durationInFrames={clipDuration('ai-opportunity')} fps={fps} width={width} height={height} />
       <Composition id="AiNativeClip" component={AiNativeClip} durationInFrames={clipDuration('ai-native')} fps={fps} width={width} height={height} />
+      <Composition id="MarketProductivityOverrunsClip" component={MarketProductivityOverrunsClip} durationInFrames={360} fps={fps} width={width} height={height} />
+      <Composition id="ProblemFocusTypographyClip" component={ProblemFocusTypographyClip} durationInFrames={269} fps={fps} width={width} height={height} />
+      <Composition id="InnovationAutomationRedesignClip" component={InnovationAutomationRedesignClip} durationInFrames={240} fps={fps} width={width} height={height} />
+      <Composition id="AiFirstDefinitionClip" component={AiFirstDefinitionClip} durationInFrames={240} fps={fps} width={width} height={height} />
+      <Composition id="TechnologyAdoptionImpactClip" component={TechnologyAdoptionImpactClip} durationInFrames={240} fps={fps} width={width} height={height} />
+      <Composition id="ManMachineContinuumClip" component={ManMachineContinuumClip} durationInFrames={300} fps={fps} width={width} height={height} />
+      <Composition id="ProductStrategySystemClip" component={ProductStrategySystemClip} durationInFrames={300} fps={fps} width={width} height={height} />
+      <Composition id="AiMarketGrowthClip" component={AiMarketGrowthClip} durationInFrames={270} fps={fps} width={width} height={height} />
     </>
   )
 }

@@ -134,24 +134,32 @@ try {
   report.interactions.cinematicVisible = await cinematicVideo.count()
   report.interactions.cinematicPlaying = await cinematicVideo.evaluate((video) => video instanceof HTMLVideoElement && !video.paused && video.readyState >= 2)
 
-  // Patrones clave del nuevo arco: modo agente, team of experts y loop mínimo.
-  const agentModeIndex = sceneIds.indexOf('chatgpt-agent-mode') + 1
-  await page.goto(`${baseUrl}/?slide=${agentModeIndex}`, { waitUntil: 'networkidle' })
-  report.interactions.agentModeWindow = await page.locator('.agent-mode-window').count()
+  // Patrones clave del nuevo arco: escalera de madurez, equipo AEC, anatomía, visión y casos.
+  const ladderIndex = sceneIds.indexOf('maturity-ladder') + 1
+  await page.goto(`${baseUrl}/?slide=${ladderIndex}`, { waitUntil: 'networkidle' })
+  report.interactions.ladderRungs = await page.locator('.ladder-rung').count()
 
-  const grokIndex = sceneIds.indexOf('grok-expert-team') + 1
-  await page.goto(`${baseUrl}/?slide=${grokIndex}`, { waitUntil: 'networkidle' })
-  report.interactions.grokAgents = await page.locator('.grok-agent').count()
+  const teamIndex = sceneIds.indexOf('multiagent-team') + 1
+  await page.goto(`${baseUrl}/?slide=${teamIndex}`, { waitUntil: 'networkidle' })
+  report.interactions.aecAgents = await page.locator('.grok-agent').count()
 
-  const firstLoopIndex = sceneIds.indexOf('first-loop') + 1
-  await page.goto(`${baseUrl}/?slide=${firstLoopIndex}`, { waitUntil: 'networkidle' })
-  report.interactions.firstLoopSteps = await page.locator('.loop-step').count()
+  const anatomyIndex = sceneIds.indexOf('agent-anatomy') + 1
+  await page.goto(`${baseUrl}/?slide=${anatomyIndex}`, { waitUntil: 'networkidle' })
+  report.interactions.anatomyCells = await page.locator('.anatomy-cell').count()
+
+  const visionIndex = sceneIds.indexOf('vision-construction') + 1
+  await page.goto(`${baseUrl}/?slide=${visionIndex}`, { waitUntil: 'networkidle' })
+  report.interactions.visionOps = await page.locator('.vision-op').count()
+
+  const casesIndex = sceneIds.indexOf('genplus-cases') + 1
+  await page.goto(`${baseUrl}/?slide=${casesIndex}`, { waitUntil: 'networkidle' })
+  report.interactions.caseCards = await page.locator('.case-card').count()
   await context.close()
 
   // Móvil 390×844 en escenas críticas
   const mobile = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1 })
   const mobilePage = await mobile.newPage()
-  for (const index of [1, filmIndex, agentModeIndex, total]) {
+  for (const index of [1, filmIndex, ladderIndex, total]) {
     await mobilePage.goto(`${baseUrl}/?slide=${index}`, { waitUntil: 'networkidle' })
     await mobilePage.waitForTimeout(400)
     await mobilePage.screenshot({ path: resolve(screenshotDir, `mobile-${String(index).padStart(2, '0')}.png`), fullPage: true })
@@ -166,7 +174,7 @@ try {
   await reducedPage.goto(`${baseUrl}/?slide=${filmIndex}`, { waitUntil: 'networkidle' })
   await reducedPage.waitForTimeout(400)
   report.interactions.reducedMotionPoster = await reducedPage.locator('.cinematic-poster').count()
-  await reducedPage.goto(`${baseUrl}/?slide=${sceneIds.indexOf('first-loop') + 1}`, { waitUntil: 'networkidle' })
+  await reducedPage.goto(`${baseUrl}/?slide=${sceneIds.indexOf('maturity-ladder') + 1}`, { waitUntil: 'networkidle' })
   await reducedPage.waitForTimeout(400)
   await reducedPage.screenshot({ path: resolve(screenshotDir, 'reduced-motion-loop.png') })
   await reduced.close()
@@ -213,9 +221,11 @@ if (report.navigation.arrowRight !== sceneIds[1] || report.navigation.end !== sc
 if (report.navigation.overview !== 1 || report.navigation.notes !== 1) failures.push('overlays overview/notas')
 if (report.interactions.cinematicVisible !== 1 || report.interactions.cinematicPlaying !== true) failures.push('film principal no visible o sin autoplay')
 if (report.interactions.reducedMotionPoster !== 1) failures.push('film sin fallback para reduced motion')
-if (report.interactions.agentModeWindow !== 1) failures.push('pantallazo conceptual de Agent Mode ausente')
-if (report.interactions.grokAgents !== 4) failures.push(`team of experts incompleto (${report.interactions.grokAgents}/4)`)
-if (report.interactions.firstLoopSteps !== 4) failures.push(`primer loop incompleto (${report.interactions.firstLoopSteps}/4)`)
+if (report.interactions.ladderRungs !== 8) failures.push(`escalera de madurez incompleta (${report.interactions.ladderRungs}/8)`)
+if (report.interactions.aecAgents !== 7) failures.push(`equipo multiagente AEC incompleto (${report.interactions.aecAgents}/7)`)
+if (report.interactions.anatomyCells !== 9) failures.push(`anatomía del agente incompleta (${report.interactions.anatomyCells}/9)`)
+if (report.interactions.visionOps !== 4) failures.push(`operaciones de visión incompletas (${report.interactions.visionOps}/4)`)
+if (report.interactions.caseCards !== 9) failures.push(`casos GEN+/AECODE incompletos (${report.interactions.caseCards}/9)`)
 
 if (failures.length) {
   console.error(`QA FAIL: ${failures.join('; ')}`)

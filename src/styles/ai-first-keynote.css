@@ -299,6 +299,137 @@
 .closing-brand img { width: 92px; }
 .closing-brand span { color: var(--text-faint); font: 650 0.58rem/1 var(--font-mono); letter-spacing: 0.11em; }
 
+/* ── Título (S1) ── */
+.cover-domain { margin-top: 26px; }
+.cover-domain span { display: inline-block; padding: 10px 16px; border: 1px solid color-mix(in oklch, var(--decision) 55%, var(--border)); border-radius: 999px; color: var(--decision-soft); font: 740 0.66rem/1 var(--font-mono); letter-spacing: 0.16em; }
+
+/* ── Mercado (S5): dolores + frase ── */
+.market-pains { grid-column: 1 / -1; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.market-pains span { padding: 9px 14px; border: 1px solid var(--border); border-radius: 999px; color: var(--text-secondary); font-size: 0.74rem; }
+.market-gap .market-conclusion span { font: 560 var(--step-1)/1.3 var(--font-display); letter-spacing: 0; text-transform: none; }
+
+/* ── Oportunidad (S6): flujo antes/ahora ── */
+.opportunity-flow .operating-before div span,
+.opportunity-flow .operating-after div span { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.04em; }
+.opportunity-flow .flow-arrow { border: 0; padding: 0 2px; color: var(--decision-soft); background: none; }
+.opportunity-flow .operating-after div span:not(.flow-arrow) { border-color: color-mix(in oklch, var(--signal) 45%, var(--border)); color: var(--text-primary); }
+
+/* ── Panorama (S8): seis cambios ── */
+.momentum-shifts { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 16px; }
+.momentum-shifts span { padding: 9px 14px; border: 1px solid color-mix(in oklch, var(--signal) 38%, var(--border)); border-radius: 999px; color: var(--text-primary); font-size: 0.74rem; }
+
+/* ── Escalera de madurez (S10) ── */
+.maturity-ladder { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 8px; align-items: end; }
+.ladder-rung { position: relative; min-height: clamp(180px, 24vh, 250px); padding: 16px 13px; border: 1px solid var(--border); border-radius: var(--radius); display: flex; flex-direction: column; justify-content: flex-end; background: color-mix(in oklch, var(--surface) 85%, transparent); }
+.ladder-rung > span { position: absolute; top: 14px; color: var(--text-faint); font: 720 0.58rem/1 var(--font-mono); }
+.ladder-rung h3 { margin: 0; font: 600 0.85rem/1.12 var(--font-display); letter-spacing: 0.01em; text-wrap: balance; }
+.ladder-rung p { margin: 8px 0 0; color: var(--text-secondary); font-size: 0.64rem; line-height: 1.35; }
+.rung-1 { margin-bottom: 0; }
+.rung-2 { padding-bottom: calc(16px + 10px); }
+.rung-3 { padding-bottom: calc(16px + 20px); }
+.rung-4 { padding-bottom: calc(16px + 30px); }
+.rung-5 { padding-bottom: calc(16px + 40px); }
+.rung-6 { padding-bottom: calc(16px + 50px); }
+.rung-7 { padding-bottom: calc(16px + 60px); }
+.rung-8 { padding-bottom: calc(16px + 70px); }
+.rung-4,
+.rung-5,
+.rung-6 { border-color: color-mix(in oklch, var(--signal) 46%, var(--border)); }
+.rung-4 > span, .rung-5 > span, .rung-6 > span { color: var(--signal-bright); }
+.rung-7,
+.rung-8 { border-color: var(--decision); background: linear-gradient(170deg, color-mix(in oklch, var(--decision) 12%, var(--surface)), var(--surface)); }
+.rung-7 > span, .rung-8 > span { color: var(--decision-soft); }
+
+/* ── Prompt Engineering (S11) ── */
+.prompt-blueprint { display: grid; grid-template-columns: 1.22fr 0.78fr; gap: 16px; align-items: stretch; }
+.blueprint-panel { border: 1px solid var(--border-strong); border-radius: 20px; overflow: hidden; background: color-mix(in oklch, var(--background-deep) 88%, transparent); box-shadow: 0 30px 80px color-mix(in oklch, var(--background-deep) 70%, transparent); }
+.blueprint-head { display: flex; align-items: center; gap: 8px; min-height: 46px; padding: 0 18px; border-bottom: 1px solid var(--border); }
+.blueprint-head span { width: 10px; height: 10px; border-radius: 50%; background: var(--border-strong); }
+.blueprint-head span:first-child { background: color-mix(in oklch, var(--risk) 70%, var(--border)); }
+.blueprint-head span:nth-child(2) { background: color-mix(in oklch, var(--decision) 70%, var(--border)); }
+.blueprint-head span:nth-child(3) { background: color-mix(in oklch, var(--evidence) 70%, var(--border)); }
+.blueprint-head b { margin-left: 8px; color: var(--text-secondary); font: 650 0.62rem/1 var(--font-mono); letter-spacing: 0.08em; }
+.blueprint-body { padding: clamp(16px, 2.2vh, 26px) clamp(18px, 2vw, 28px); display: grid; gap: 9px; }
+.blueprint-line { display: grid; grid-template-columns: 150px 1fr; align-items: baseline; gap: 16px; padding: 9px 0; border-bottom: 1px solid color-mix(in oklch, var(--border) 55%, transparent); }
+.blueprint-line b { color: var(--signal-bright); font: 720 0.64rem/1 var(--font-mono); letter-spacing: 0.1em; }
+.blueprint-line:nth-last-child(-n+2) b { color: var(--decision-soft); }
+.blueprint-line span { color: var(--text-primary); font: 480 0.8rem/1.4 var(--font-mono); }
+.blueprint-note { padding: clamp(22px, 2.6vw, 36px); border: 1px solid var(--border); border-radius: var(--radius-lg); display: flex; flex-direction: column; justify-content: center; background: color-mix(in oklch, var(--surface) 85%, transparent); }
+.blueprint-note small { color: var(--signal-bright); font: 720 0.62rem/1 var(--font-mono); letter-spacing: 0.14em; }
+.blueprint-note strong { max-width: 16ch; margin-top: 22px; font: 570 var(--step-2)/1.1 var(--font-display); }
+.blueprint-note p { margin: 18px 0 0; color: var(--text-secondary); line-height: 1.5; }
+
+/* ── Vibe Coding (S12) ── */
+.vibe-coding { display: grid; grid-template-columns: 1.22fr 0.78fr; gap: 16px; align-items: stretch; }
+.vibe-terminal { border: 1px solid var(--border-strong); border-radius: 20px; overflow: hidden; background: color-mix(in oklch, var(--background-deep) 90%, transparent); box-shadow: 0 30px 80px color-mix(in oklch, var(--background-deep) 70%, transparent); }
+.vibe-exchange { padding: clamp(18px, 2.4vh, 30px) clamp(20px, 2.2vw, 32px); display: grid; gap: 16px; }
+.vibe-exchange p { margin: 0; font: 480 0.84rem/1.55 var(--font-mono); }
+.vibe-human { color: var(--text-primary); }
+.vibe-machine { padding-left: 22px; color: var(--text-secondary); }
+.vibe-machine i { margin-right: 8px; color: var(--signal-bright); font-style: normal; }
+.vibe-machine.is-done i { color: var(--evidence); }
+.vibe-outputs { padding: clamp(22px, 2.6vw, 36px); border: 1px solid var(--border); border-radius: var(--radius-lg); display: flex; flex-direction: column; justify-content: center; background: color-mix(in oklch, var(--surface) 85%, transparent); }
+.vibe-outputs small { color: var(--signal-bright); font: 720 0.62rem/1 var(--font-mono); letter-spacing: 0.14em; }
+.vibe-outputs div { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.vibe-outputs div span { padding: 9px 13px; border: 1px solid color-mix(in oklch, var(--signal) 40%, var(--border)); border-radius: 999px; color: var(--text-primary); font-size: 0.74rem; }
+.vibe-outputs p { margin: 22px 0 0; color: var(--text-secondary); line-height: 1.5; }
+
+/* ── Agente: definición (S13) ── */
+.agent-definition { display: grid; grid-template-rows: auto auto; gap: clamp(16px, 2.6vh, 28px); align-content: center; }
+.agent-mission { max-width: 1080px; padding: clamp(20px, 2.4vw, 32px) clamp(24px, 2.8vw, 40px); border: 1px solid color-mix(in oklch, var(--signal) 45%, var(--border)); border-radius: var(--radius-lg); background: linear-gradient(140deg, color-mix(in oklch, var(--signal) 10%, var(--surface)), var(--surface)); }
+.agent-mission small { color: var(--signal-bright); font: 720 0.62rem/1 var(--font-mono); letter-spacing: 0.14em; }
+.agent-mission blockquote { margin: 14px 0 0; font: 560 var(--step-1)/1.35 var(--font-display); }
+.agent-mission p { margin: 12px 0 0; color: var(--text-secondary); font-size: 0.82rem; }
+.agent-flow { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; }
+.agent-flow-step { position: relative; min-height: clamp(96px, 13vh, 128px); padding: 14px; border: 1px solid var(--border); border-radius: var(--radius); display: flex; flex-direction: column; justify-content: flex-end; gap: 6px; background: color-mix(in oklch, var(--surface) 85%, transparent); }
+.agent-flow-step span { position: absolute; top: 12px; color: var(--text-faint); font: 720 0.56rem/1 var(--font-mono); }
+.agent-flow-step b { font: 600 0.82rem/1.1 var(--font-display); text-transform: capitalize; }
+.agent-flow-step i { position: absolute; z-index: 3; left: calc(100% + 1px); top: 50%; width: 8px; height: 1px; background: var(--signal); }
+.agent-flow-step.is-action { border-color: color-mix(in oklch, var(--decision) 45%, var(--border)); }
+.agent-flow-step.is-action span { color: var(--decision-soft); }
+
+/* ── Anatomía 9 piezas (S14) ── */
+.anatomy-nine { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.anatomy-cell { min-height: clamp(108px, 15vh, 142px); padding: 16px 18px; border: 1px solid var(--border); border-radius: var(--radius); display: flex; flex-direction: column; justify-content: flex-end; background: color-mix(in oklch, var(--surface) 85%, transparent); }
+.anatomy-cell span { margin-bottom: auto; color: var(--text-faint); font: 720 0.58rem/1 var(--font-mono); }
+.anatomy-cell h3 { margin: 0; font: 580 var(--step-0)/1.05 var(--font-display); }
+.anatomy-cell p { margin: 6px 0 0; color: var(--text-secondary); font-size: 0.7rem; line-height: 1.35; }
+.anatomy-cell.is-guard { border-color: color-mix(in oklch, var(--decision) 45%, var(--border)); }
+.anatomy-cell.is-guard span { color: var(--decision-soft); }
+.anatomy-cell.is-check { border-color: color-mix(in oklch, var(--evidence) 42%, var(--border)); }
+.anatomy-cell.is-check span { color: var(--evidence); }
+
+/* ── Equipo multiagente AEC (S15) ── */
+.aec-team { grid-template-columns: 0.56fr 1.44fr; }
+.aec-agent-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.aec-agent-grid .grok-agent b { margin-top: 26px; }
+.aec-team .grok-orchestrator > span { color: var(--signal-bright); }
+
+/* ── Orquestación (S16): capacidades ── */
+.stack-capabilities { grid-column: 1 / -1; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 4px; }
+.stack-capabilities span { padding: 9px 13px; border: 1px solid color-mix(in oklch, var(--decision) 38%, var(--border)); border-radius: 999px; color: var(--text-primary); font-size: 0.72rem; }
+
+/* ── Casos GEN+ / AECODE (S19) ── */
+.cases-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.case-card { min-height: clamp(112px, 15.5vh, 148px); padding: 16px 18px; border: 1px solid var(--border); border-radius: var(--radius); display: flex; flex-direction: column; justify-content: flex-end; background: linear-gradient(160deg, color-mix(in oklch, var(--surface-raised) 34%, transparent), var(--surface)); }
+.case-card small { margin-bottom: auto; color: var(--signal-bright); font: 740 0.56rem/1 var(--font-mono); letter-spacing: 0.14em; }
+.case-card h3 { margin: 0; font: 580 var(--step-0)/1.05 var(--font-display); }
+.case-card p { margin: 6px 0 0; color: var(--text-secondary); font-size: 0.7rem; line-height: 1.35; }
+.case-card.tag-visión { border-color: color-mix(in oklch, var(--perception) 45%, var(--border)); }
+.case-card.tag-visión small { color: var(--perception); }
+.case-card.tag-edge { border-color: color-mix(in oklch, var(--decision) 45%, var(--border)); }
+.case-card.tag-edge small { color: var(--decision-soft); }
+
+/* ── Cierre AI First → AI Native (S20) ── */
+.native-pair { display: grid; grid-template-columns: 1fr auto 1fr; align-items: stretch; gap: 14px; margin-top: 26px; }
+.native-step { padding: 18px 20px; border: 1px solid var(--border); border-radius: var(--radius); background: color-mix(in oklch, var(--surface) 82%, transparent); }
+.native-step small { color: var(--signal-bright); font: 740 0.62rem/1 var(--font-mono); letter-spacing: 0.14em; }
+.native-step p { margin: 10px 0 0; color: var(--text-secondary); font-size: 0.76rem; line-height: 1.45; }
+.native-step.is-native { border-color: var(--decision); background: linear-gradient(150deg, color-mix(in oklch, var(--decision) 11%, var(--surface)), var(--surface)); }
+.native-step.is-native small { color: var(--decision-soft); }
+.native-pair > i { align-self: center; width: 26px; height: 1px; background: linear-gradient(90deg, var(--signal), var(--decision)); }
+.proof-closing .proof-number { margin-top: 34px; }
+
 @media (max-width: 1100px) {
   .market-gap,
   .problem-focus,
@@ -376,6 +507,19 @@
   .operating-shift { min-height: 110px; margin: 0; flex-direction: row; }
   .operating-shift span { writing-mode: initial; transform: none; }
   .first-loop .loop-gate { grid-column: 1 / -1; }
+  .maturity-ladder { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .ladder-rung { min-height: 150px; padding-bottom: 16px !important; }
+  .prompt-blueprint,
+  .vibe-coding { grid-template-columns: 1fr; }
+  .blueprint-line { grid-template-columns: 110px 1fr; }
+  .agent-flow { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .agent-flow-step i { display: none; }
+  .anatomy-nine,
+  .cases-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .aec-team { grid-template-columns: 1fr; }
+  .aec-agent-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .native-pair { grid-template-columns: 1fr; }
+  .native-pair > i { width: 1px; height: 22px; justify-self: center; }
   .proof-data { border-right: 0; border-bottom: 1px solid var(--border); }
   .closing-question { min-height: 620px; padding: 48px 24px 120px; }
   .closing-question h2 { font-size: clamp(3rem, 16vw, 5rem); }
@@ -395,6 +539,12 @@
   .concept-runway { grid-template-columns: 1fr; }
   .loop-step i { display: none; }
   .closing-formula { flex-wrap: wrap; }
+  .maturity-ladder,
+  .agent-flow,
+  .anatomy-nine,
+  .cases-grid,
+  .aec-agent-grid { grid-template-columns: 1fr; }
+  .blueprint-line { grid-template-columns: 1fr; gap: 4px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -27,7 +27,7 @@ const content = readFileSync(resolve(root, 'src/content/scenes.tsx'), 'utf8')
 const ids = [...content.matchAll(/^\s{4}id: '([^']+)'/gm)].map((match) => match[1])
 const unique = new Set(ids)
 if (ids.length !== unique.size) throw new Error(`Ids de escena duplicados: ${ids.length}/${unique.size}`)
-if (ids.length !== 20) throw new Error(`El arco debe tener exactamente 20 escenas; hay ${ids.length}`)
+if (ids.length !== 21) throw new Error(`El arco debe tener exactamente 21 escenas (20 slides + film); hay ${ids.length}`)
 const filmIds = ids.filter((id) => id.startsWith('film-'))
 if (filmIds.length !== 1) throw new Error(`Debe existir exactamente 1 interludio cinematográfico en el arco principal; hay ${filmIds.length}`)
 
@@ -48,12 +48,12 @@ for (const scene of timing.scenes) {
 }
 
 const requiredCopy = [
-  'La ventaja no es usar IA',
-  'Tres ideas. Una sola tesis.',
-  'Entenderá mejor el problema',
-  'Si no funciona dentro de tu empresa',
-  'AI First no es añadir un chatbot',
-  '¿Quieres ser una más?',
+  'aplicada a la construcción',
+  'La información existe, pero no actúa',
+  'no es escribir preguntas, es diseñar instrucciones',
+  'Un agente no solo responde: ejecuta',
+  'equipo digital coordinado',
+  'La ventaja no será usar IA',
 ]
 for (const phrase of requiredCopy) {
   if (!content.includes(phrase)) throw new Error(`Falta copy esencial: ${phrase}`)

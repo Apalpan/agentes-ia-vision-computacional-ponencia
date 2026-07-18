@@ -3,10 +3,10 @@ import { SceneFrame } from '../components/SceneFrame'
 import { Reveal, useMotion } from '../motion/MotionContext'
 
 const OPERATIONS = [
-  { key: 'clasifica', label: 'CLASIFICA', question: '¿Qué está ocurriendo?', output: 'escena → actividad de vaciado' },
-  { key: 'detecta', label: 'DETECTA', question: '¿Dónde está cada objeto?', output: 'persona · mixer → posición' },
-  { key: 'segmenta', label: 'SEGMENTA', question: '¿Qué área pertenece a cada clase?', output: 'píxeles → superficie de losa' },
-  { key: 'sigue', label: 'SIGUE', question: '¿Cómo cambia en el tiempo?', output: 'trayectoria → permanencia en zona' },
+  { key: 'clasifica', label: 'CLASIFICA', question: '¿Qué está ocurriendo?', output: 'avance físico · desvío frente al plan' },
+  { key: 'detecta', label: 'DETECTA', question: '¿Dónde está cada objeto?', output: 'EPP · maquinaria · riesgos de seguridad' },
+  { key: 'segmenta', label: 'SEGMENTA', question: '¿Qué área pertenece a cada clase?', output: 'superficies · zonas de trabajo' },
+  { key: 'sigue', label: 'SIGUE', question: '¿Cómo cambia en el tiempo?', output: 'inactividad · permanencia · flujo' },
 ] as const
 
 function Viewfinder({ active }: { active: number }) {
@@ -92,9 +92,9 @@ export function VisionGrammar() {
 
   return (
     <SceneFrame
-      eyebrow="ACTO II · PERCEPCIÓN"
-      title={<>La visión no “entiende la obra”. Convierte píxeles en eventos.</>}
-      lead="Cuatro operaciones distintas sobre el mismo encuadre. El caso de uso define cuál necesita el sistema — no al revés."
+      eyebrow="ACTO III · VISIÓN COMPUTACIONAL"
+      title="La obra empieza a verse a sí misma."
+      lead="EPP, avance físico, maquinaria, riesgos, inactividad y evidencia fotográfica automática: todos los casos nacen de cuatro operaciones sobre el mismo encuadre."
       className="vision-scene"
     >
       <div className="vision-grammar">
