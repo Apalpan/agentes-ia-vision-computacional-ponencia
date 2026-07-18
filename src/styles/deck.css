@@ -184,6 +184,18 @@
   max-width: min(1120px, 86vw);
 }
 
+.frame-kicker-row {
+  min-height: 40px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.frame-kicker-row .eyebrow { margin-bottom: 0; }
+.frame-action { flex: 0 0 auto; margin-top: -8px; }
+.clip-action-group { display: flex; align-items: center; gap: 8px; }
+
 .eyebrow {
   margin: 0 0 12px;
   font-family: var(--font-mono);

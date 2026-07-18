@@ -35,7 +35,7 @@ src/
   components/ SceneFrame, ClipPlayer, assetUrl
   motion/     tokens temporales + MotionContext/Reveal (CSS interactivo ↔ Remotion determinista)
   deck/       shell interactivo (navegación, overlays, notas)
-  remotion/   Root, SceneRender, KeynoteFull y 4 clips
+  remotion/   Root, SceneRender, KeynoteFull y 10 clips conceptuales
   styles/     tokens OKLCH GEN+ (semánticos: signal/perception/decision/evidence/risk), base, deck, escenas
 public/
   assets/     logos GEN+
@@ -52,7 +52,7 @@ Las mismas escenas alimentan el deck HTML y el video: `MotionContext` decide si 
 
 ```powershell
 npm run render:deck      # outputs/keynote-full.mp4 (~2:13 min)
-npm run render:clips     # 4 clips + posters → outputs/clips + public/media
+npm run render:clips     # 10 clips + posters → outputs/clips + public/media
 npm run render:opening   # clips individuales…
 npm run render:vision
 npm run render:loop
@@ -74,7 +74,7 @@ npm run qa:temporal  # estados 0/25/50/75/100 % por escena desde keynote-full.mp
 
 - Las fuentes viven en `public/source-manifest.json`; los tags no se muestran al público (están en las notas del presentador).
 - Ninguna cifra de precisión/latencia/mercado: las fuentes del vault no las sostienen. Donde haría falta un número se dice explícitamente que se calibra en el piloto (`Requiere validación`).
-- No existe footage real en las carpetas autorizadas: los 4 clips son motion graphics **declarados como representación conceptual** en pantalla y en `public/media/media-manifest.json`.
+- No existe footage real verificable en las carpetas autorizadas: los 10 clips son motion graphics **declarados como representación conceptual** en pantalla y en `public/media/media-manifest.json`.
 - Demos de cámara e incidente: conceptuales, locales, sin biometría, sin modelo validado.
 - Tipografía display: la marca define Plus Jakarta Sans + Ruberoid; Ruberoid no está disponible como asset licenciado en el repo, se usa Space Grotesk como sustituto de escenario (documentado).
 

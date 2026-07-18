@@ -2,7 +2,7 @@ import { spawnSync } from 'node:child_process'
 import { copyFileSync, mkdirSync, statSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 
-// Renderiza los 4 clips conceptuales con Remotion, genera posters, copia todo a
+// Renderiza los 9 clips conceptuales con Remotion, genera posters, copia todo a
 // public/media/ y reescribe el manifiesto de medios con procedencia.
 const root = resolve(import.meta.dirname, '..')
 const outClips = resolve(root, 'outputs', 'clips')
@@ -13,16 +13,27 @@ for (const dir of [outClips, pubClips, pubPosters]) mkdirSync(dir, { recursive: 
 const CLIPS = [
   { id: 'opening', composition: 'OpeningClip', posterFrame: 176, usedIn: ['cover'] },
   { id: 'vision-to-event', composition: 'VisionToEventClip', posterFrame: 258, usedIn: ['camera-lab'] },
+  { id: 'edge-local', composition: 'EdgeLocalProtocolClip', posterFrame: 186, usedIn: ['edge-pipeline'] },
+  { id: 'voice-protocol', composition: 'VoiceProtocolClip', posterFrame: 188, usedIn: ['agent-anatomy'] },
+  { id: 'gplus-brain', composition: 'GPlusBrainClip', posterFrame: 330, usedIn: ['agent-anatomy'] },
   { id: 'agent-loop', composition: 'AgentLoopClip', posterFrame: 300, usedIn: ['incident'] },
+  { id: 'multi-agent', composition: 'MultiAgentProtocolClip', posterFrame: 188, usedIn: ['multiagent'] },
+  { id: 'human-gate', composition: 'HumanGateProtocolClip', posterFrame: 188, usedIn: ['human-gate'] },
+  { id: 'pilot-protocol', composition: 'PilotProtocolClip', posterFrame: 190, usedIn: ['pilot'] },
   { id: 'closing', composition: 'ClosingClip', posterFrame: 186, usedIn: ['closing'] },
 ]
+
+const requested = process.argv.slice(2)
+const ACTIVE_CLIPS = requested.length ? CLIPS.filter((clip) => requested.includes(clip.id)) : CLIPS
+const unknown = requested.filter((id) => !CLIPS.some((clip) => clip.id === id))
+if (unknown.length) throw new Error(`Clips desconocidos: ${unknown.join(', ')}`)
 
 const run = (args) => {
   const result = spawnSync('npx', args, { cwd: root, stdio: 'inherit', shell: true })
   if (result.status !== 0) throw new Error(`Comando falló: npx ${args.join(' ')}`)
 }
 
-for (const clip of CLIPS) {
+for (const clip of ACTIVE_CLIPS) {
   const mp4 = resolve(outClips, `${clip.id}.mp4`)
   const poster = resolve(pubPosters, `${clip.id}.png`)
   console.log(`\n▶ Render ${clip.composition}`)
@@ -62,4 +73,4 @@ const manifest = {
 }
 
 writeFileSync(resolve(root, 'public', 'media', 'media-manifest.json'), JSON.stringify(manifest, null, 2))
-console.log('\nOK: 4 clips + 4 posters renderizados, copiados a public/media y manifiesto actualizado.')
+console.log(`\nOK: ${ACTIVE_CLIPS.length} clips renderizados; manifiesto completo de ${CLIPS.length} clips actualizado.`)

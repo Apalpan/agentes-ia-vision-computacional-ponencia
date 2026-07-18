@@ -1738,6 +1738,9 @@
   .scene { min-height: calc(100svh - 108px); overflow: visible; }
   .frame { min-height: calc(100svh - 108px); height: auto; padding: 30px 22px 26px; grid-template-rows: auto auto; }
   .frame-head { max-width: 100%; }
+  .frame-kicker-row { align-items: center; gap: 12px; }
+  .frame-action .clip-trigger { min-height: 38px; padding-inline: 11px; font-size: 0.58rem; }
+  .clip-action-group { flex-wrap: wrap; justify-content: flex-end; }
   .frame h2 { font-size: clamp(1.8rem, 8vw, 2.7rem); }
   .lead { font-size: 0.92rem; }
   .frame-body { align-items: start; }
@@ -1838,7 +1841,7 @@
   .overlay { inset: 8px; }
   .notes-overlay { inset: auto 8px 8px; }
   .notes-grid { grid-template-columns: 1fr; }
-  .clip-stage { inset: auto 8px 8px; width: calc(100vw - 16px); }
+  .clip-stage { inset: auto 8px 8px; width: calc(100vw - 16px); transform: none; border-radius: 14px; }
 }
 
 @media (max-width: 520px) {
@@ -1871,14 +1874,22 @@
   .motion-item,
   .event-card,
   .zone-event,
-  .overlay,
-  .clip-stage {
+  .overlay {
     opacity: 1 !important;
     transform: none !important;
+  }
+
+  .clip-stage {
+    opacity: 1 !important;
+    transform: translate(-50%, -50%) !important;
   }
 
   .sk-signal-progress { stroke-dashoffset: 0; stroke-dasharray: 1 0; }
   .cv-ring-progress { stroke-dashoffset: 0; }
   .pipeline-payload { left: calc(50% - 95px); opacity: 1; }
   .zone-event:not(.is-visible) { opacity: 0 !important; }
+}
+
+@media (max-width: 820px) and (prefers-reduced-motion: reduce) {
+  .clip-stage { transform: none !important; }
 }

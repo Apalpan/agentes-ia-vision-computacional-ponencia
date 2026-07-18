@@ -1,4 +1,5 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { useMotion } from '../motion/MotionContext'
 
 // Reproductor de clips conceptuales: activación manual, silencio por defecto,
@@ -8,6 +9,15 @@ export function ClipPlayer({ src, poster, label }: { src: string; poster: string
   const motion = useMotion()
   const [state, setState] = useState<'closed' | 'open' | 'failed'>('closed')
   const videoRef = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    if (state === 'closed') return
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setState('closed')
+    }
+    window.addEventListener('keydown', closeOnEscape)
+    return () => window.removeEventListener('keydown', closeOnEscape)
+  }, [state])
 
   if (motion.isRender) return null
 
@@ -19,11 +29,11 @@ export function ClipPlayer({ src, poster, label }: { src: string; poster: string
     )
   }
 
-  return (
-    <div className="clip-stage" role="dialog" aria-label={label}>
+  return createPortal((
+    <div className="clip-stage" role="dialog" aria-modal="true" aria-label={label}>
       <div className="clip-head">
         <span>{label} · representación conceptual</span>
-        <button type="button" onClick={() => setState('closed')} aria-label="Cerrar clip">×</button>
+        <button type="button" autoFocus onClick={() => setState('closed')} aria-label="Cerrar clip">×</button>
       </div>
       {state === 'failed' ? (
         <div className="clip-fallback">
@@ -46,5 +56,5 @@ export function ClipPlayer({ src, poster, label }: { src: string; poster: string
         />
       )}
     </div>
-  )
+  ), document.body)
 }

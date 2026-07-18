@@ -1,5 +1,6 @@
 import { SceneFrame } from '../components/SceneFrame'
 import { Reveal } from '../motion/MotionContext'
+import { ClipPlayer } from '../components/ClipPlayer'
 
 const PHASES = [
   ['OBSERVAR', 'Un evento crítico, una zona, una cámara.', '¿La señal existe con calidad suficiente?'],
@@ -14,6 +15,7 @@ export function Pilot() {
       title="Empieza con un evento crítico. No con una plataforma."
       lead="El piloto debe demostrar que una señal visual mejora una decisión específica antes de ampliar cámaras, clases o agentes."
       className="pilot-scene"
+      action={<ClipPlayer src="./media/clips/pilot-protocol.mp4" poster="./media/posters/pilot-protocol.png" label="Clip · primer piloto" />}
     >
       <div className="pilot-steps">
         {PHASES.map(([title, action, question], index) => (

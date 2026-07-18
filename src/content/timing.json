@@ -24,6 +24,12 @@
     { "id": "opening", "durationInFrames": 210 },
     { "id": "vision-to-event", "durationInFrames": 270 },
     { "id": "agent-loop", "durationInFrames": 330 },
-    { "id": "closing-clip", "durationInFrames": 210 }
+    { "id": "closing-clip", "durationInFrames": 210 },
+    { "id": "edge-local", "durationInFrames": 210 },
+    { "id": "voice-protocol", "durationInFrames": 210 },
+    { "id": "multi-agent", "durationInFrames": 210 },
+    { "id": "human-gate", "durationInFrames": 210 },
+    { "id": "pilot-protocol", "durationInFrames": 210 },
+    { "id": "gplus-brain", "durationInFrames": 360 }
   ]
 }

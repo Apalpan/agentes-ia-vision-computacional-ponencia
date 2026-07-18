@@ -11,6 +11,14 @@ import { OpeningClip } from './clips/OpeningClip'
 import { VisionToEventClip } from './clips/VisionToEventClip'
 import { AgentLoopClip } from './clips/AgentLoopClip'
 import { ClosingClip } from './clips/ClosingClip'
+import {
+  EdgeLocalProtocolClip,
+  HumanGateProtocolClip,
+  MultiAgentProtocolClip,
+  PilotProtocolClip,
+  VoiceProtocolClip,
+} from './clips/FieldProtocolClips'
+import { GPlusBrainClip } from './clips/GPlusBrainClip'
 
 const { fps, width, height, transitionFrames } = timing
 
@@ -88,6 +96,12 @@ export function RemotionRoot() {
         width={width}
         height={height}
       />
+      <Composition id="EdgeLocalProtocolClip" component={EdgeLocalProtocolClip} durationInFrames={clipDuration('edge-local')} fps={fps} width={width} height={height} />
+      <Composition id="VoiceProtocolClip" component={VoiceProtocolClip} durationInFrames={clipDuration('voice-protocol')} fps={fps} width={width} height={height} />
+      <Composition id="MultiAgentProtocolClip" component={MultiAgentProtocolClip} durationInFrames={clipDuration('multi-agent')} fps={fps} width={width} height={height} />
+      <Composition id="HumanGateProtocolClip" component={HumanGateProtocolClip} durationInFrames={clipDuration('human-gate')} fps={fps} width={width} height={height} />
+      <Composition id="PilotProtocolClip" component={PilotProtocolClip} durationInFrames={clipDuration('pilot-protocol')} fps={fps} width={width} height={height} />
+      <Composition id="GPlusBrainClip" component={GPlusBrainClip} durationInFrames={clipDuration('gplus-brain')} fps={fps} width={width} height={height} />
     </>
   )
 }

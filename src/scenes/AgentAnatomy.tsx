@@ -1,5 +1,6 @@
 import { SceneFrame } from '../components/SceneFrame'
 import { Reveal } from '../motion/MotionContext'
+import { ClipPlayer } from '../components/ClipPlayer'
 
 const LAYERS = [
   ['Objetivo', 'qué resultado debe producir'],
@@ -17,6 +18,12 @@ export function AgentAnatomy() {
       title="Un agente útil no es un chatbot con nombre. Es un sistema con límites."
       lead="El modelo es solo una pieza. Sin herramientas, memoria, verificación y permisos no hay sistema confiable — hay una demo."
       className="anatomy-scene"
+      action={
+        <div className="clip-action-group">
+          <ClipPlayer src="./media/clips/gplus-brain.mp4" poster="./media/posters/gplus-brain.png" label="Clip · cerebro GEN+" />
+          <ClipPlayer src="./media/clips/voice-protocol.mp4" poster="./media/posters/voice-protocol.png" label="Clip · voz operativa" />
+        </div>
+      }
     >
       <div className="agent-stack">
         <div className="agent-layers">

@@ -119,6 +119,11 @@ export const scenes: SceneContract[] = [
     transitionOut: '“¿Y qué es exactamente ese agente que recibe el evento?” → anatomía.',
     durationInFrames: t('edge-pipeline').durationInFrames,
     stableFrame: t('edge-pipeline').stableFrame,
+    media: [
+      { id: 'clip-edge-local', kind: 'clip', file: 'media/clips/edge-local.mp4' },
+      { id: 'poster-edge-local', kind: 'poster', file: 'media/posters/edge-local.png' },
+    ],
+    interaction: { kind: 'clip', fallback: 'El pipeline conserva el mismo recorrido sin reproducir el clip.' },
     notes: {
       intent: 'Bajar la arquitectura a decisiones operativas, no a marcas de hardware.',
       opening: '“Este pequeño paquete — persona, zona, hora — es el protagonista de la arquitectura.”',
@@ -138,6 +143,13 @@ export const scenes: SceneContract[] = [
     transitionOut: '“Con las piezas claras, veamos el sistema girando” → loop.',
     durationInFrames: t('agent-anatomy').durationInFrames,
     stableFrame: t('agent-anatomy').stableFrame,
+    media: [
+      { id: 'clip-gplus-brain', kind: 'clip', file: 'media/clips/gplus-brain.mp4' },
+      { id: 'poster-gplus-brain', kind: 'poster', file: 'media/posters/gplus-brain.png' },
+      { id: 'clip-voice-protocol', kind: 'clip', file: 'media/clips/voice-protocol.mp4' },
+      { id: 'poster-voice-protocol', kind: 'poster', file: 'media/posters/voice-protocol.png' },
+    ],
+    interaction: { kind: 'clip', fallback: 'Las seis capas del agente explican el sistema sin depender de video.' },
     notes: {
       intent: 'Checklist mental de compra/diseño de agentes.',
       opening: '“Cuando les ofrezcan un agente, pidan ver estas seis capas. Si falta una, es una demo.”',
@@ -228,6 +240,11 @@ export const scenes: SceneContract[] = [
     transitionOut: '“¿Y quién controla a los agentes?” → gobernanza.',
     durationInFrames: t('multiagent').durationInFrames,
     stableFrame: t('multiagent').stableFrame,
+    media: [
+      { id: 'clip-multi-agent', kind: 'clip', file: 'media/clips/multi-agent.mp4' },
+      { id: 'poster-multi-agent', kind: 'poster', file: 'media/posters/multi-agent.png' },
+    ],
+    interaction: { kind: 'clip', fallback: 'Los contratos de entrada y salida quedan visibles en la escena.' },
     notes: {
       intent: 'Arquitectura organizacional, no zoológico de bots.',
       opening: '“La tentación es pedir un agente que lo haga todo. Esa es la receta del fracaso.”',
@@ -247,6 +264,11 @@ export const scenes: SceneContract[] = [
     transitionOut: '“Con límites claros, ¿cómo empezar? Pequeño.” → piloto.',
     durationInFrames: t('human-gate').durationInFrames,
     stableFrame: t('human-gate').stableFrame,
+    media: [
+      { id: 'clip-human-gate', kind: 'clip', file: 'media/clips/human-gate.mp4' },
+      { id: 'poster-human-gate', kind: 'poster', file: 'media/posters/human-gate.png' },
+    ],
+    interaction: { kind: 'clip', fallback: 'El espectro de riesgo mantiene visible el punto de control humano.' },
     notes: {
       intent: 'Convertir el temor en criterio de diseño.',
       opening: '“La pregunta correcta no es si la IA decide. Es qué decisiones jamás le vamos a delegar.”',
@@ -266,6 +288,11 @@ export const scenes: SceneContract[] = [
     transitionOut: '“¿Y cómo sabremos si funcionó?” → métricas.',
     durationInFrames: t('pilot').durationInFrames,
     stableFrame: t('pilot').stableFrame,
+    media: [
+      { id: 'clip-pilot-protocol', kind: 'clip', file: 'media/clips/pilot-protocol.mp4' },
+      { id: 'poster-pilot-protocol', kind: 'poster', file: 'media/posters/pilot-protocol.png' },
+    ],
+    interaction: { kind: 'clip', fallback: 'Las tres fases del piloto continúan disponibles como guía estática.' },
     notes: {
       intent: 'Accionabilidad inmediata sin promesas de precisión.',
       opening: '“No compren una plataforma. Elijan un evento que hoy les duela.”',

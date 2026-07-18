@@ -1,5 +1,6 @@
 import { SceneFrame } from '../components/SceneFrame'
 import { Reveal, useMotion } from '../motion/MotionContext'
+import { ClipPlayer } from '../components/ClipPlayer'
 
 const STATIONS = [
   ['CÁMARA', 'captura el frame'],
@@ -21,6 +22,7 @@ export function EdgePipeline() {
       title="El evento nace cerca de la cámara. La acción, cerca del contexto."
       lead="Procesar en el edge protege ancho de banda y continuidad con red inestable. La capa de agentes conecta el evento con reglas, responsables y trazabilidad."
       className="edge-scene"
+      action={<ClipPlayer src="./media/clips/edge-local.mp4" poster="./media/posters/edge-local.png" label="Clip · edge local" />}
     >
       <div className="edge-wrap">
         <div className="edge-pipeline">

@@ -1,5 +1,6 @@
 import { SceneFrame } from '../components/SceneFrame'
 import { Reveal } from '../motion/MotionContext'
+import { ClipPlayer } from '../components/ClipPlayer'
 
 export function HumanGate() {
   return (
@@ -8,6 +9,7 @@ export function HumanGate() {
       title="Autonomía proporcional al riesgo: lo crítico lo decide una persona."
       lead="Autonomía sin permisos produce riesgo. Supervisión sin contexto produce lentitud. El punto de control humano se diseña antes de automatizar."
       className="gate-scene"
+      action={<ClipPlayer src="./media/clips/human-gate.mp4" poster="./media/posters/human-gate.png" label="Clip · gate humano" />}
     >
       <div className="risk-spectrum">
         <Reveal order={1} className="spectrum-bar" aria-hidden="true">

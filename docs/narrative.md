@@ -94,10 +94,16 @@ type SceneContract = {
 |---|---|---|---|
 | OpeningClip | apertura (antes/dentro de 01) | 7 s | oscuridad → estructura de obra en línea → una cámara detecta → la señal viaja → tesis |
 | VisionToEventClip | escena 04/08 | 9 s | frame → zona → detección → clasificación → contexto → evento estructurado con payload |
+| EdgeLocalProtocolClip | escena 05 | 7 s | frame → zona → caja edge → ficha de evento; viaja el evento, no el video completo |
+| GPlusBrainClip | escena 06 | 12 s | cerebro en grises → red semántica GEN+ → señal entra → decisión acotada → evidencia cierra el loop |
+| VoiceProtocolClip | escena 06 | 7 s | radio de obra → orden operativa → tool call verificable |
 | AgentLoopClip | escena 09 | 11 s | evento → contexto → evaluación → herramienta → escalamiento → humano → acción → evidencia → cierre |
+| MultiAgentProtocolClip | escena 10 | 7 s | evento único → carriles especialistas → respuesta de proceso integrada |
+| HumanGateProtocolClip | escena 11 | 7 s | autonomía → umbral de riesgo → sello humano → acción registrada |
+| PilotProtocolClip | escena 12 | 7 s | evento crítico → definir → operar → medir → loop mínimo |
 | ClosingClip | escena 15 | 7 s | señales convergen → loop se completa → idea final → GEN+ sobrio |
 
-No existe footage real verificable en las carpetas permitidas (inventario 2026-07-17): los cuatro clips son **motion graphics abstractos declarados como representación conceptual** en pantalla y en el manifiesto de medios.
+No existe footage real verificable en las carpetas permitidas (inventario 2026-07-17): los diez clips son **motion graphics abstractos declarados como representación conceptual** en pantalla y en el manifiesto de medios. `GPlusBrainClip` toma como referencia de ritmo y composición la escena “Cerebro / Nexo” del HTML THESIA suministrado por Alejandro, pero reemplaza el video embebido por una red vectorial determinista construida desde cero en Remotion.
 
 ## Duración
 

@@ -1,5 +1,6 @@
 import { SceneFrame } from '../components/SceneFrame'
 import { Reveal } from '../motion/MotionContext'
+import { ClipPlayer } from '../components/ClipPlayer'
 
 const SPECIALISTS = [
   ['VISIÓN', 'frame de cámara', 'evento estructurado'],
@@ -15,6 +16,7 @@ export function MultiAgent() {
       title="Un agente que hace todo, falla. Especialistas coordinados cierran procesos."
       lead="Cada agente tiene un objetivo, herramientas limitadas y una salida verificable. El orquestador reparte, escala y audita — no improvisa."
       className="orchestra-scene"
+      action={<ClipPlayer src="./media/clips/multi-agent.mp4" poster="./media/posters/multi-agent.png" label="Clip · multiagente" />}
     >
       <div className="agent-orchestra">
         <Reveal order={1} className="orchestrator">
